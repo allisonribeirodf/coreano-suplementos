@@ -76,7 +76,7 @@ footer {
 }
 
 /* Botão flutuante do WhatsApp */
-a[href*="https://instagram.com/coreanosuplementos"] {
+a[href*="https://instagram.com/https://api.whatsapp.com/send/?phone=5561985402592&text&type=phone_number&app_absent=0"] {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -91,6 +91,6 @@ a[href*="https://instagram.com/coreanosuplementos"] {
   z-index: 1000;
 }
 
-a[href*="https://instagram.com/coreanosuplementos"]:hover {
+a[href*="https://api.whatsapp.com/send/?phone=5561985402592&text&type=phone_number&app_absent=0://instagram.com/coreanosuplementos"]:hover {
   background-color: #1ebe5d;
 }
