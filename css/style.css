@@ -16,7 +16,7 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 .navbar img {
-  height: 50px;
+  height: 25px;
 }
 .navbar a {
   text-decoration: none;
@@ -87,92 +87,192 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* PRODUTOS */
-main {
-  padding: 2rem;
-}
-h2 {
-  color: #222;
-  border-bottom: 2px solid #f97316;
-  padding-bottom: 0.3rem;
-}
-.produtos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-.produto {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  width: 260px;
-  padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-.produto img {
-  width: 100%;
-  border-radius: 6px;
-}
-.produto h3 {
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
-}
-.produto p {
-  font-size: 0.95rem;
-  margin: 0.3rem 0;
-}
-
-/* FOOTER */
+/* FOOTER OPCIONAL */
 footer {
   background-color: #fff;
   border-top: 1px solid #ddd;
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
-}
-
-/* AVISO DESCONTO */
-.desconto-msg {
-  background-color: #dcfce7;
-  color: #166534;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  font-weight: bold;
-  text-align: center;
-}
-
-/* BOTÃO FLUTUANTE WHATSAPP COM ÍCONE E ANIMAÇÃO */
-.whatsapp-float {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
-.whatsapp-float img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  animation: pulse 2s infinite;
+/* CONTAINER DE CATEGORIAS */
+.produtos-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.produtos-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #f97316;
+  padding-left: 0.5rem;
+  color: #1f2937;
+}
+
+/* GRID DE CARDS DE CATEGORIAS */
+.categorias-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* CARD DE CATEGORIA */
+.categoria-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  width: 250px;
+  text-align: center;
   transition: transform 0.3s ease;
 }
 
-.whatsapp-float img:hover {
-  transform: scale(1.1);
+.categoria-card:hover {
+  transform: translateY(-5px);
 }
 
-/* Animação de pulso */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.08);
-  }
-  100% {
-    transform: scale(1);
-  }
+.categoria-card img {
+  width: 100%;
+  max-height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
+
+.categoria-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.categoria-card p {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+/* Botão "Ver Produtos" nas categorias */
+.categoria-card .btn-ver-produtos {
+  background-color: #f97316; /* Cor do botão */
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.categoria-card .btn-ver-produtos:hover {
+  background-color: #ea580c; /* Cor de hover do botão */
+}
+
+/* PRODUTOS GRID NA PÁGINA DE PRODUTOS */
+.produtos-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* CARD DE PRODUTO */
+.produto-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.produto-card:hover {
+  transform: translateY(-5px);
+}
+
+.produto-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.produto-card h3 {
+  font-size: 1.2rem;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.produto-card p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.btn-compra {
+  background-color: #f97316;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-compra:hover {
+  background-color: #ea580c;
+}
+
+/* Estilo do botão Voltar */
+.voltar-categorias {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #f97316;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.voltar-categorias:hover {
+  background-color: #ea580c;
+}
+
+/* Botão Flutuante WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 70px; /* Distância ajustada para ficar acima do rodapé */
+  right: 30px; /* Distância da borda direita */
+  z-index: 9999; /* Garante que o botão fique sempre no topo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-float img {
+  width: 60px;  /* Tamanho ajustado do botão */
+  height: 60px; /* Tamanho ajustado do botão */
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave ao redor do botão */
+  animation: pulse 2s infinite; /* Animação de pulsação */
+  transition: transform 0.3s ease; /* Transição suave no hover */
+}
+
+.whatsapp-float img:hover {
+  transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); } /* Aumenta o tamanho no meio da animação */
+  100% { transform: scale(1); }
+}
+
