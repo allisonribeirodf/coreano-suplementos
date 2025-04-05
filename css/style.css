@@ -74,3 +74,23 @@ footer {
   font-weight: bold;
   text-align: center;
 }
+
+/* Botão flutuante do WhatsApp */
+a[href*="wa.me"] {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+a[href*="wa.me"]:hover {
+  background-color: #1ebe5d;
+}
