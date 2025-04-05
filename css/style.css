@@ -76,7 +76,7 @@ footer {
 }
 
 /* Botão flutuante do WhatsApp */
-a[href*="wa.me"] {
+a[href*="https://instagram.com/coreanosuplementos"] {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -91,6 +91,6 @@ a[href*="wa.me"] {
   z-index: 1000;
 }
 
-a[href*="wa.me"]:hover {
+a[href*="https://instagram.com/coreanosuplementos"]:hover {
   background-color: #1ebe5d;
 }
