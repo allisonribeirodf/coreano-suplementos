@@ -1,53 +1,47 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coreano Suplementos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bem-vindo | Coreano Suplementos</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header>
-    <img src="images/logo.png" alt="Logo Coreano Suplementos" class="logo" />
-    <a href="login.html" class="btn-login">Login</a>
-  </header>
+  <div class="navbar">
+    <img src="images/logo.png" alt="Logo Coreano Suplementos" />
+    <div>
+      <a href="index.html">Início</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="#">Contato</a>
+    </div>
+  </div>
 
-  <main>
-    <p class="desconto-msg">💬 Seguidores que chamarem no WhatsApp ganham <strong>descontos exclusivos</strong> em todos os produtos!</p>
+  <div class="hero">
+    <img src="images/logo.png" alt="Logo Coreano Suplementos" />
+    <h1>Seja bem-vindo à <strong>Coreano Suplementos</strong>!</h1>
+    <p>Aqui é onde começa sua evolução. Foco, força e performance com os melhores suplementos do mercado.</p>
+    <a href="produtos.html" class="btn-ver-produtos">📦 Ver Produtos Disponíveis</a>
+  </div>
 
-    <section id="whey">
-      <h2>Whey Protein</h2>
-      <div class="produtos" id="whey-produtos"></div>
-    </section>
+  <div class="benefits">
+    <div class="benefit">
+      <h3>✔️ Produtos Originais</h3>
+      <p>Trabalhamos apenas com marcas confiáveis e suplementos certificados.</p>
+    </div>
+    <div class="benefit">
+      <h3>🚚 Envio Rápido</h3>
+      <p>Envio imediato após a confirmação. Chega rapidinho na sua casa.</p>
+    </div>
+    <div class="benefit">
+      <h3>📲 Suporte WhatsApp</h3>
+      <p>Atendimento direto pelo WhatsApp com descontos exclusivos pra seguidores.</p>
+    </div>
+  </div>
 
-    <section id="creatina">
-      <h2>Creatinas</h2>
-      <div class="produtos" id="creatina-produtos"></div>
-    </section>
-
-    <section id="pre-treino">
-      <h2>Pré-Treinos</h2>
-      <div class="produtos" id="pre-treino-produtos"></div>
-    </section>
-
-    <section id="outros">
-      <h2>Vitaminas & Suplementos</h2>
-      <div class="produtos" id="outros-produtos"></div>
-    </section>
-
-    <section id="acessorios">
-      <h2>Acessórios</h2>
-      <div class="produtos" id="acessorios-produtos"></div>
-    </section>
-  </main>
-
-  <footer>
-    <p>Contato via WhatsApp: (61) 98540-2592</p>
-    <p>Instagram: <a href="https://instagram.com/coreanosuplementos" target="_blank">@coreanosuplementos</a></p>
-    <p>Localização: Brasília - DF</p>
-  </footer>
-
-  <script src="js/produtos.js"></script>
-  <script src="js/script.js"></script>
+  <!-- Botão Flutuante WhatsApp -->
+  <a href="https://wa.me/5561985402592" target="_blank" class="whatsapp-button">
+    📩 Fale conosco
+  </a>
 </body>
 </html>
