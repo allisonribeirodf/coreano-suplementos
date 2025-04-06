@@ -10,8 +10,11 @@
   <div class="navbar">
     <img src="images/logo.png" alt="Logo Coreano Suplementos" />
     <div>
-      <a href="index.html">Início</a>
-      <a href="#">Contato</a>
+      <!-- Carrinho de compras -->
+      <span class="cart-icon" id="cart-icon">
+        <span class="emoji-cart">🛒</span>
+        <span class="quantidade-carrinho" id="quantidade-carrinho">0</span>
+      </span>
     </div>
   </div>
 
@@ -23,22 +26,150 @@
         <img src="images/whey.jpg" alt="Whey Protein">
         <h3>Whey Protein Concentrado 1kg - Dark Lab</h3>
         <p>R$123,41 no PIX</p>
-        <button>Comprar</button>
+        <button onclick="abrirModal(0, 'Whey Protein Concentrado 1kg - Dark Lab', 123.41)">Comprar</button>
+
+        <!-- Modal dentro do card -->
+        <div class="modal-content" id="modal-0">
+          <h3>Selecione o sabor</h3>
+          <select id="sabor-select-0">
+            <option value="chocolate">Chocolate</option>
+            <option value="morango">Morango</option>
+            <option value="baunilha">Baunilha</option>
+            <option value="cookies">Cookies e Cream</option>
+            <option value="paçoca">Paçoca</option>
+            <option value="banana">Banana</option>
+            <option value="chocolate_branco">Chocolate Branco</option>
+            <option value="doce_de_leite">Doce de Leite</option>
+          </select>
+          <button onclick="adicionarCarrinho(0)">Adicionar ao Carrinho</button>
+        </div>
       </div>
       <div class="produto-card">
         <img src="images/whey.jpg" alt="Isolate Protein">
         <h3>Isolate Protein Fuse 1,8kg - Dark Lab</h3>
         <p>R$137,66 no PIX</p>
-        <button>Comprar</button>
+        <button onclick="abrirModal(1, 'Isolate Protein Fuse 1,8kg - Dark Lab', 137.66)">Comprar</button>
+
+        <!-- Modal dentro do card -->
+        <div class="modal-content" id="modal-1">
+          <h3>Selecione o sabor</h3>
+          <select id="sabor-select-1">
+            <option value="chocolate">Chocolate</option>
+            <option value="morango">Morango</option>
+            <option value="baunilha">Baunilha</option>
+            <option value="cookies">Cookies e Cream</option>
+            <option value="paçoca">Paçoca</option>
+            <option value="banana">Banana</option>
+            <option value="chocolate_branco">Chocolate Branco</option>
+            <option value="doce_de_leite">Doce de Leite</option>
+          </select>
+          <button onclick="adicionarCarrinho(1)">Adicionar ao Carrinho</button>
+        </div>
       </div>
     </div>
-    
-    <!-- Botão "Voltar para Categorias" na parte superior direita -->
-    <a href="produtos.html" class="voltar-categorias">Voltar para Categorias</a>
+
+    <!-- Modal Carrinho -->
+    <div class="modal-carrinho" id="modal-carrinho" onclick="event.stopPropagation();">
+      <h3>Resumo do Pedido</h3>
+      <div id="itens-carrinho"></div>
+      <button class="finalizar-compra" onclick="finalizarCompraCarrinho()">Finalizar Compra no WhatsApp</button>
+    </div>
   </main>
 
   <footer>
     <p>&copy; 2025 Coreano Suplementos. Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    let carrinho = [];
+    let modalCarrinho = document.getElementById("modal-carrinho");
+    let quantidadeCarrinhoElement = document.getElementById("quantidade-carrinho");
+    let cartIcon = document.getElementById("cart-icon"); // Carrinho no topo
+
+    // Mostrar e esconder o modal ao clicar no carrinho
+    cartIcon.addEventListener("click", function(event) {
+      event.stopPropagation();  // Impede que o clique se propague e feche o modal
+      if (modalCarrinho.style.display === "block") {
+        modalCarrinho.style.display = "none";  // Fechar
+      } else {
+        modalCarrinho.style.display = "block"; // Mostrar
+      }
+    });
+
+    // Evento para clicar fora do modal e fechar
+    document.addEventListener("click", function(event) {
+      const target = event.target;
+      if (!modalCarrinho.contains(target) && target !== cartIcon) {
+        modalCarrinho.style.display = "none";  // Minimiza o modal
+      }
+    });
+
+    // Abrir Modal de Produto
+    function abrirModal(produtoId, nomeProduto, precoProduto) {
+      document.getElementById(`modal-${produtoId}`).style.display = "block";
+      window.produtoAtual = { nome: nomeProduto, preco: precoProduto };
+    }
+
+    // Adicionar ao Carrinho
+    function adicionarCarrinho(produtoId) {
+      const saborSelecionado = document.getElementById(`sabor-select-${produtoId}`).value;
+      if (!saborSelecionado) {
+        alert("Selecione um sabor antes de adicionar ao carrinho.");
+        return;
+      }
+
+      carrinho.push({ produto: window.produtoAtual, sabor: saborSelecionado });
+      atualizarCarrinho();
+      document.getElementById(`modal-${produtoId}`).style.display = "none"; // Fechar modal
+    }
+
+    // Atualizar Carrinho
+    function atualizarCarrinho() {
+      const carrinhoContainer = document.getElementById("itens-carrinho");
+      carrinhoContainer.innerHTML = ""; // Limpar carrinho
+
+      if (carrinho.length === 0) {
+        carrinhoContainer.innerHTML = "<p>Seu carrinho está vazio.</p>";
+      } else {
+        carrinho.forEach((item, index) => {
+          const carrinhoItem = document.createElement("div");
+          carrinhoItem.classList.add("carrinho-item");
+          carrinhoItem.innerHTML = `${item.produto.nome} - Sabor: ${item.sabor} - R$${item.produto.preco.toFixed(2)} 
+          <button onclick="removerItemCarrinho(${index})">🗑️</button>`;
+          carrinhoContainer.appendChild(carrinhoItem);
+        });
+      }
+
+      const quantidadeCarrinho = carrinho.length;
+      if (quantidadeCarrinho > 0) {
+        quantidadeCarrinhoElement.style.display = 'inline';
+        quantidadeCarrinhoElement.textContent = quantidadeCarrinho;
+      } else {
+        quantidadeCarrinhoElement.style.display = 'none';
+      }
+    }
+
+    // Remover item do carrinho
+    function removerItemCarrinho(index) {
+      carrinho.splice(index, 1); // Remove o item
+      atualizarCarrinho(); // Atualiza o carrinho
+    }
+
+    // Finalizar Compra
+    function finalizarCompraCarrinho() {
+      if (carrinho.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+      }
+
+      let mensagem = "Resumo da Compra:\n";
+      carrinho.forEach(item => {
+        mensagem += `${item.produto.nome} - Sabor: ${item.sabor} - R$${item.produto.preco.toFixed(2)}\n`;
+      });
+
+      const urlWhatsApp = `https://wa.me/55XXXXXXXXXXX?text=${encodeURIComponent(mensagem)}`;
+      window.open(urlWhatsApp, "_blank");
+    }
+  </script>
 </body>
 </html>
