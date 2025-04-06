@@ -28,3 +28,4 @@ document.addEventListener('DOMContentLoaded', () => {
     categorias[prod.categoria].appendChild(card);
   });
 });
+ 
