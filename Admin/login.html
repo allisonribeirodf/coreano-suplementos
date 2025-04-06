@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Coreano Suplementos</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f7f7f7;
+    }
+
+    .login-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-card h2 {
+      margin-bottom: 1.5rem;
+      color: #1a1a1a;
+    }
+
+    .login-card input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .login-card button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #f97316;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .login-card button:hover {
+      background-color: #ea580c;
+    }
+
+    .login-card p {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h2>Área Administrativa</h2>
+    <form onsubmit="return logar()">
+      <input type="text" placeholder="Usuário" id="usuario" required />
+      <input type="password" placeholder="Senha" id="senha" required />
+      <button type="submit">Entrar</button>
+    </form>
+    <p>© 2025 Coreano Suplementos</p>
+  </div>
+
+  <script>
+    function logar() {
+      const usuario = document.getElementById('usuario').value;
+      const senha = document.getElementById('senha').value;
+  
+      if (usuario === 'admin' && senha === '1234') {
+        alert('Login bem-sucedido!');
+        window.location.href = "painel.html";
+        return false; // impede o envio do form
+      } else {
+        alert('Usuário ou senha incorretos.');
+        return false;
+      }
+    }
+  </script>  
+</body>
+</html>

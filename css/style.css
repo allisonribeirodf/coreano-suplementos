@@ -5,19 +5,13 @@ body {
   background-color: #f7f7f7;
   color: #333;
 }
-
 /* Estilo da Navbar */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; /* <-- Alinha os botões à direita */
   align-items: center;
   background-color: #1a1a1a;
   padding: 1rem 2rem;
-}
-
-.navbar img {
-  height: 50px;
-  object-fit: contain;
 }
 
 .navbar div {
@@ -25,7 +19,6 @@ body {
   gap: 2rem;
 }
 
-/* Remover links de "Início" e "Contato", mantendo o carrinho */
 .navbar a {
   text-decoration: none;
   color: #fff;
@@ -42,13 +35,16 @@ body {
   .navbar {
     flex-direction: column;
     align-items: center;
+    padding: 1rem;
   }
 
   .navbar div {
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
   }
 }
+
 
 /* Hero */
 .hero {
@@ -115,15 +111,18 @@ body {
 
 /* Footer */
 footer {
-  background-color: #fff;
-  border-top: 1px solid #ddd;
+  background-color: #f9f9f9;
+  padding: 0.3rem 0;       /* Reduz a altura */
+  margin-top: 0.5rem;      /* Diminui a distância do bloco acima */
   text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  position: fixed; /* Faz o rodapé ficar fixo no fundo */
-  bottom: 0;
-  width: 100%; /* Garante que o rodapé ocupe toda a largura da tela */
-  box-sizing: border-box;
+  font-size: 0.85rem;
+  color: #777;
+  border-top: 1px solid #e0e0e0;
+  line-height: 1.2;
+}
+
+footer p {
+  margin: 0; /* Remove espaço interno automático do <p> */
 }
 
 /* Container de Categorias */
@@ -241,8 +240,6 @@ footer {
   background-color: #ea580c;
 }
 
-
-
 /* Modal dentro do Card */
 .modal-content {
   background-color: #fff;
@@ -262,199 +259,17 @@ footer {
 .modal-content button {
   background-color: #f97316;
   color: white;
-  padding: 0.8rem 1.5rem;
+  padding: 0.8rem  1.5rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.modal-content button:hover {
-  background-color: #ea580c;
-}
-
-/* Carrinho de compras - Ícone */
+/* Cart-icon limpo */
 .cart-icon {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #fff;
-  border-radius: 50%;
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  font-size: 2rem;
-  transition: all 0.3s ease;
-  z-index: 10000;
-}
-
-.cart-icon:hover {
-  background-color: #f97316; /* Quando passar o mouse */
-  transform: scale(1.2);
-}
-
-.quantidade-carrinho {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  padding: 5px 10px;
-  font-size: 1rem;
-  display: none; /* Inicialmente escondido */
-}
-
-/* Modal Carrinho */
-.modal-carrinho {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  width: 80%;
-  max-width: 500px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  display: none; /* Inicialmente invisível */
-  z-index: 10001;
-  border-radius: 10px;
-  overflow-y: auto;
-  transition: opacity 0.3s ease;
-}
-
-.modal-carrinho::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Efeito de fundo escuro */
-  z-index: -1; /* Coloca o fundo atrás do modal */
-}
-
-/* Tamanho do Modal */
-.modal-carrinho h3 {
-  margin-bottom: 10px;
-  font-size: 1.5rem;
-}
-
-/* Modal do Carrinho */
-.modal-carrinho {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  width: 400px; /* Largura mais adaptada */
-  max-width: 90%;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  display: none; /* Inicialmente invisível */
-  z-index: 10001;
-  border-radius: 15px; /* Bordas arredondadas */
-  overflow-y: auto;
-  transition: opacity 0.3s ease;
-  opacity: 0;
-  backdrop-filter: blur(10px); /* Desfoque do fundo */
-}
-
-/* Quando o modal estiver ativo */
-.modal-carrinho.active {
-  opacity: 1; /* Exibição com transição */
-}
-
-/* Fundo do Modal */
-.modal-carrinho::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Efeito de fundo escuro */
-  z-index: -1; /* Coloca o fundo atrás do modal */
-  transition: background-color 0.3s ease;
-}
-
-/* Título do Modal */
-.modal-carrinho h3 {
-  margin-bottom: 10px;
-  font-size: 1.8rem;
-  text-align: center;
-  color: #333;
-  font-weight: bold;
-}
-
-/* Imagem do Produto no Modal */
-.modal-carrinho img {
-  width: 100%;
-  max-width: 150px;
-  object-fit: cover;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  display: block;
-  margin: 0 auto; /* Centraliza a imagem */
-}
-
-/* Detalhes dos Itens no Carrinho */
-#itens-carrinho {
-  margin-bottom: 20px;
-  max-height: 60%;
-  overflow-y: auto;
-  font-size: 1.1rem;
-}
-
-#itens-carrinho div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-/* Remover Item - Lixeira */
-#itens-carrinho button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #f44336; /* Cor vermelha */
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
-}
-
-#itens-carrinho button:hover {
-  color: #d32f2f; /* Cor ao passar o mouse */
-}
-
-/* Botão Finalizar Compra */
-.finalizar-compra {
-  background-color: #34D399;
-  color: white;
-  padding: 12px 0;
-  border: none;
-  border-radius: 8px;
-  width: 100%;
-  cursor: pointer;
-  font-size: 1.2rem;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  text-align: center;
-}
-
-.finalizar-compra:hover {
-  background-color: #059669;
-}
-
-/* Estilo do botão Voltar */
-.voltar-categorias {
-  display: none; /* Removido de acordo com sua solicitação */
-}
-
-/* Ajuste do Carrinho - Icone e Quantidade */
-.cart-icon {
-  position: fixed;
-  top: 20px;
+  top: 100px;
   right: 20px;
   background-color: #fff;
   border-radius: 50%;
@@ -483,13 +298,14 @@ footer {
   border-radius: 50%;
   padding: 5px 10px;
   font-size: 1rem;
-  display: none; /* Inicialmente escondido */
+  display: none;
 }
+
 /* Estilo do botão do WhatsApp */
 .whatsapp-float {
   position: fixed;
-  bottom: 70px;
-  right: 30px;
+  bottom: 80px;
+  right: 35px;
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -499,30 +315,29 @@ footer {
 
 /* Efeito de pulsação */
 @keyframes pulse {
-  0% { transform: scale(1); }       /* Tamanho normal */
-  50% { transform: scale(1.1); }    /* Aumenta um pouco */
-  100% { transform: scale(1); }     /* Retorna ao tamanho normal */
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 /* Imagem do WhatsApp */
 .whatsapp-float img {
-  width: 70px;  /* Tamanho maior da imagem */
-  height: 70px; /* Tamanho maior da imagem */
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease; /* Suaviza a transição do tamanho */
+  transition: transform 0.3s ease;
 }
 
 .whatsapp-float img:hover {
-  transform: scale(1.1); /* Efeito ao passar o mouse: aumenta o tamanho */
+  transform: scale(1.1);
 }
-
 
 /* Ajuste no layout dos cards */
 .benefits {
   display: flex;
-  justify-content: space-between;  /* Espaço igual entre os cards */
-  margin: 2rem 0;                  /* Margem superior e inferior */
+  justify-content: space-between;
+  margin: 2rem 0;
   padding: 0 2rem;
 }
 
@@ -530,15 +345,15 @@ footer {
   background-color: #fff;
   padding: 1rem;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombras mais suaves */
-  flex: 1 1 calc(33.333% - 20px);   /* Cards com 1/3 da largura, ajustando para o gap */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(33.333% - 20px);
   text-align: center;
-  transition: transform 0.3s ease;   /* Efeito de transição */
-  margin: 0 10px;                   /* Espaçamento entre os cards */
+  transition: transform 0.3s ease;
+  margin: 0 10px;
 }
 
 .benefit:hover {
-  transform: translateY(-5px);      /* Efeito de hover para os cards */
+  transform: translateY(-5px);
 }
 
 .benefit h3 {
@@ -555,12 +370,152 @@ footer {
 
 @media (max-width: 768px) {
   .benefits {
-    flex-direction: column; /* Para telas menores, colocar os cards um abaixo do outro */
+    flex-direction: column;
     gap: 15px;
   }
 
   .benefit {
-    flex: 1 1 100%; /* 100% da largura */
+    flex: 1 1 100%;
   }
 }
- 
+
+/* ... (seu CSS anterior permanece igual até antes do modal-carrinho) ... */
+
+/* Modal do Carrinho estilo card sofisticado */
+.modal-carrinho {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  width: 90%;
+  max-width: 420px;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  z-index: 10001;
+  display: none;
+  animation: fadeInScale 0.3s ease;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.modal-carrinho h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #111827;
+  text-align: center;
+}
+
+#itens-carrinho {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.carrinho-item {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.carrinho-item button {
+  background: none;
+  border: none;
+  color: #f44336;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.carrinho-item button:hover {
+  color: #d32f2f;
+}
+
+.resumo-pedido h4 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #111;
+  font-size: 1.1rem;
+}
+
+.resumo-pedido ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.resumo-pedido li {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 0.3rem;
+}
+
+.btn-finalizar {
+  background-color: #25d366;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-finalizar:hover {
+  background-color: #128c7e;
+}
+
+.sabor-box {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.sabor-box h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.sabor-box select {
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.sabor-box button {
+  background-color: #f97316;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.sabor-box select:focus {
+  outline: 2px solid #f97316;
+  border-color: #f97316;
+}
+
+.sabor-box button:focus {
+  outline: 2px solid #f97316;
+  outline-offset: 2px;
+}
+

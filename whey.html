@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Produtos | Coreano Suplementos</title>
+  <title>Whey Protein | Coreano Suplementos</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <div class="navbar">
-    <img src="images/logo.png" alt="Logo Coreano Suplementos" />
     <div>
-      <!-- Carrinho de compras -->
+      <a href="index.html">Início</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="#">Contato</a>
       <span class="cart-icon" id="cart-icon">
         <span class="emoji-cart">🛒</span>
         <span class="quantidade-carrinho" id="quantidade-carrinho">0</span>
@@ -22,15 +23,13 @@
     <h2>Whey Protein</h2>
 
     <div class="produtos-grid">
+      <!-- Produto 1 -->
       <div class="produto-card">
-        <img src="images/whey.jpg" alt="Whey Protein">
-        <h3>Whey Protein Concentrado 1kg - Dark Lab</h3>
-        <p>R$123,41 no PIX</p>
-        <button onclick="abrirModal(0, 'Whey Protein Concentrado 1kg - Dark Lab', 123.41)">Comprar</button>
-
-        <!-- Modal dentro do card -->
-        <div class="modal-content" id="modal-0">
-          <h3>Selecione o sabor</h3>
+        <img src="images/wheydarklab.png" alt="Whey Protein Concentrado 1KG - Dark Lab">
+        <h3>Whey Protein Concentrado 1KG - Dark Lab</h3>
+        <p>R$145,00 no PIX</p>
+        <div class="sabor-box">
+          <h4>Selecione o sabor:</h4>
           <select id="sabor-select-0">
             <option value="chocolate">Chocolate</option>
             <option value="morango">Morango</option>
@@ -44,73 +43,64 @@
           <button onclick="adicionarCarrinho(0)">Adicionar ao Carrinho</button>
         </div>
       </div>
-      <div class="produto-card">
-        <img src="images/whey.jpg" alt="Isolate Protein">
-        <h3>Isolate Protein Fuse 1,8kg - Dark Lab</h3>
-        <p>R$137,66 no PIX</p>
-        <button onclick="abrirModal(1, 'Isolate Protein Fuse 1,8kg - Dark Lab', 137.66)">Comprar</button>
 
-        <!-- Modal dentro do card -->
-        <div class="modal-content" id="modal-1">
-          <h3>Selecione o sabor</h3>
+      <!-- Produto 2 -->
+      <div class="produto-card">
+        <img src="images/wheydarklabIsolateFuse1.8kg.png" alt="Isolate Protein Fuse 1,8kg - Dark Lab
+        ">
+        <h3>Isolate Protein Fuse 1,8kg - Dark Lab        </h3>
+        <p>R$159,90 no PIX</p>
+        <div class="sabor-box">
+          <h4>Selecione o sabor:</h4>
           <select id="sabor-select-1">
-            <option value="chocolate">Chocolate</option>
-            <option value="morango">Morango</option>
             <option value="baunilha">Baunilha</option>
-            <option value="cookies">Cookies e Cream</option>
-            <option value="paçoca">Paçoca</option>
-            <option value="banana">Banana</option>
-            <option value="chocolate_branco">Chocolate Branco</option>
-            <option value="doce_de_leite">Doce de Leite</option>
+            <option value="morango">Morango</option>
+            <option value="café">Café</option>
+            <option value="caramelo">Caramelo</option>
           </select>
           <button onclick="adicionarCarrinho(1)">Adicionar ao Carrinho</button>
         </div>
       </div>
     </div>
-
-    <!-- Modal Carrinho -->
-    <div class="modal-carrinho" id="modal-carrinho" onclick="event.stopPropagation();">
-      <h3>Resumo do Pedido</h3>
-      <div id="itens-carrinho"></div>
-      <button class="finalizar-compra" onclick="finalizarCompraCarrinho()">Finalizar Compra no WhatsApp</button>
-    </div>
   </main>
+
+  <div class="modal-carrinho" id="modal-carrinho">
+    <h3>Seu Carrinho</h3>
+    <div id="itens-carrinho"></div>
+    <div class="resumo-pedido">
+      <h4>Resumo do Pedido</h4>
+      <ul id="lista-resumo"></ul>
+      <p><strong>Total: R$ <span id="total-pedido">0,00</span></strong></p>
+      <button class="btn-finalizar" onclick="finalizarCompraCarrinho()">Finalizar Compra no WhatsApp</button>
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2025 Coreano Suplementos. Todos os direitos reservados.</p>
   </footer>
 
   <script>
+    const produtos = [
+      { nome: "Whey Protein Concentrado 1kg - Dark Lab", preco: 145.00 },
+      { nome: "Whey Protein Isolado 1kg - Marca XYZ", preco: 189.00 }
+    ];
+
     let carrinho = [];
     let modalCarrinho = document.getElementById("modal-carrinho");
     let quantidadeCarrinhoElement = document.getElementById("quantidade-carrinho");
-    let cartIcon = document.getElementById("cart-icon"); // Carrinho no topo
-  
-    // Mostrar e esconder o modal ao clicar no carrinho
+    let cartIcon = document.getElementById("cart-icon");
+
     cartIcon.addEventListener("click", function(event) {
-      event.stopPropagation();  // Impede que o clique se propague e feche o modal
-      if (modalCarrinho.style.display === "block") {
-        modalCarrinho.style.display = "none";  // Fechar
-      } else {
-        modalCarrinho.style.display = "block"; // Mostrar
-      }
+      event.stopPropagation();
+      modalCarrinho.style.display = (modalCarrinho.style.display === "block") ? "none" : "block";
     });
 
-    // Evento para clicar fora do modal e fechar
     document.addEventListener("click", function(event) {
-      const target = event.target;
-      if (!modalCarrinho.contains(target) && target !== cartIcon) {
-        modalCarrinho.style.display = "none";  // Minimiza o modal
+      if (!modalCarrinho.contains(event.target) && event.target !== cartIcon) {
+        modalCarrinho.style.display = "none";
       }
     });
 
-    // Abrir Modal de Produto
-    function abrirModal(produtoId, nomeProduto, precoProduto) {
-      document.getElementById(`modal-${produtoId}`).style.display = "block";
-      window.produtoAtual = { nome: nomeProduto, preco: precoProduto };
-    }
-
-    // Adicionar ao Carrinho
     function adicionarCarrinho(produtoId) {
       const saborSelecionado = document.getElementById(`sabor-select-${produtoId}`).value;
       if (!saborSelecionado) {
@@ -118,44 +108,48 @@
         return;
       }
 
-      carrinho.push({ produto: window.produtoAtual, sabor: saborSelecionado });
+      const produto = produtos[produtoId];
+      carrinho.push({ produto, sabor: saborSelecionado });
       atualizarCarrinho();
-      document.getElementById(`modal-${produtoId}`).style.display = "none"; // Fechar modal
     }
 
-    // Atualizar Carrinho
     function atualizarCarrinho() {
       const carrinhoContainer = document.getElementById("itens-carrinho");
-      carrinhoContainer.innerHTML = ""; // Limpar carrinho
+      const listaResumo = document.getElementById("lista-resumo");
+      const totalPedido = document.getElementById("total-pedido");
+
+      carrinhoContainer.innerHTML = "";
+      listaResumo.innerHTML = "";
+
+      let total = 0;
 
       if (carrinho.length === 0) {
         carrinhoContainer.innerHTML = "<p>Seu carrinho está vazio.</p>";
       } else {
         carrinho.forEach((item, index) => {
-          const carrinhoItem = document.createElement("div");
-          carrinhoItem.classList.add("carrinho-item");
-          carrinhoItem.innerHTML = `${item.produto.nome} - Sabor: ${item.sabor} - R$${item.produto.preco.toFixed(2)} 
-          <button onclick="removerItemCarrinho(${index})">🗑️</button>`;
-          carrinhoContainer.appendChild(carrinhoItem);
+          const li = document.createElement("li");
+          li.textContent = `${item.produto.nome} - ${item.sabor} - R$ ${item.produto.preco.toFixed(2)}`;
+          listaResumo.appendChild(li);
+
+          const div = document.createElement("div");
+          div.classList.add("carrinho-item");
+          div.innerHTML = `${item.produto.nome} - Sabor: ${item.sabor} - R$${item.produto.preco.toFixed(2)} <button onclick="removerItemCarrinho(${index})">🔝</button>`;
+          carrinhoContainer.appendChild(div);
+
+          total += item.produto.preco;
         });
       }
 
-      const quantidadeCarrinho = carrinho.length;
-      if (quantidadeCarrinho > 0) {
-        quantidadeCarrinhoElement.style.display = 'inline';
-        quantidadeCarrinhoElement.textContent = quantidadeCarrinho;
-      } else {
-        quantidadeCarrinhoElement.style.display = 'none';
-      }
+      quantidadeCarrinhoElement.style.display = carrinho.length > 0 ? 'inline' : 'none';
+      quantidadeCarrinhoElement.textContent = carrinho.length;
+      totalPedido.textContent = total.toFixed(2);
     }
 
-    // Remover item do carrinho
     function removerItemCarrinho(index) {
-      carrinho.splice(index, 1); // Remove o item
-      atualizarCarrinho(); // Atualiza o carrinho
+      carrinho.splice(index, 1);
+      atualizarCarrinho();
     }
 
-    // Finalizar Compra
     function finalizarCompraCarrinho() {
       if (carrinho.length === 0) {
         alert("Seu carrinho está vazio!");
@@ -170,7 +164,6 @@
       const urlWhatsApp = `https://wa.me/5561985402592?text=${encodeURIComponent(mensagem)}`;
       window.open(urlWhatsApp, "_blank");
     }
-
   </script>
 </body>
 </html>
