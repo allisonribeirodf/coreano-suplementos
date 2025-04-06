@@ -279,7 +279,7 @@ footer {
   display: none; /* Inicialmente escondido */
 }
 
-/* Desfoque de fundo */
+/* Modal Carrinho */
 .modal-carrinho {
   position: fixed;
   top: 50%;
@@ -313,6 +313,7 @@ footer {
   margin-bottom: 10px;
   font-size: 1.5rem;
 }
+
 /* Modal do Carrinho */
 .modal-carrinho {
   position: fixed;
@@ -458,4 +459,74 @@ footer {
   font-size: 1rem;
   display: none; /* Inicialmente escondido */
 }
- 
+/* Botão Flutuante WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px; /* Ajuste para ficar mais visível e não cobrir conteúdo */
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #25d366; /* Cor do WhatsApp */
+  border-radius: 50%;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-float img {
+  width: 60px; /* Ajuste do tamanho da imagem */
+  height: 60px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover img {
+  transform: scale(1.1); /* Efeito de aumentar a imagem quando passar o mouse */
+}
+
+/* Ajuste no layout dos cards */
+.benefits {
+  display: flex;
+  justify-content: space-between;  /* Espaço igual entre os cards */
+  margin: 2rem 0;                  /* Margem superior e inferior */
+  padding: 0 2rem;
+}
+
+.benefit {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombras mais suaves */
+  flex: 1 1 calc(33.333% - 20px);   /* Cards com 1/3 da largura, ajustando para o gap */
+  text-align: center;
+  transition: transform 0.3s ease;   /* Efeito de transição */
+  margin: 0 10px;                   /* Espaçamento entre os cards */
+}
+
+.benefit:hover {
+  transform: translateY(-5px);      /* Efeito de hover para os cards */
+}
+
+.benefit h3 {
+  font-size: 1.2rem;
+  color: #f97316;
+  margin-bottom: 0.5rem;
+}
+
+.benefit p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .benefits {
+    flex-direction: column; /* Para telas menores, colocar os cards um abaixo do outro */
+    gap: 15px;
+  }
+
+  .benefit {
+    flex: 1 1 100%; /* 100% da largura */
+  }
+}
