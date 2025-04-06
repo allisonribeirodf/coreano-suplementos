@@ -76,21 +76,42 @@ body {
 }
 
 /* Botões */
+/* Botões "Ver Produtos" */
 .btn-ver-produtos {
   background-color: #f97316;
   color: white;
-  padding: 1rem 2rem;
+  padding: 0.8rem 1.5rem; /* Reduzi o tamanho do botão */
   border: none;
-  border-radius: 10px;
+  border-radius: 8px; /* Bordas arredondadas */
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem; /* Tamanho de fonte ajustado */
   font-weight: bold;
   transition: background-color 0.3s;
+  display: inline-block;
+  text-align: center;
 }
 
 .btn-ver-produtos:hover {
   background-color: #ea580c;
 }
+
+/* Ajustando os botões "Comprar" nas categorias e nos produtos */
+.produto-card button {
+  background-color: #f97316;
+  color: white;
+  padding: 0.6rem 1.2rem; /* Ajuste do tamanho */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.produto-card button:hover {
+  background-color: #ea580c;
+}
+
 
 /* Footer */
 footer {
@@ -99,10 +120,13 @@ footer {
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
-  position: relative;
-  margin-top: 2rem;
-  width: 100%;
+  position: fixed; /* Faz o rodapé ficar fixo no fundo */
+  bottom: 0;
+  width: 100%; /* Garante que o rodapé ocupe toda a largura da tela */
+  box-sizing: border-box;
 }
+
+
 
 /* Container de Categorias */
 .produtos-container {
@@ -163,31 +187,33 @@ footer {
   margin-bottom: 1rem;
 }
 
-/* Grid de Produtos */
+/* Grid de Cards de Produtos */
 .produtos-grid {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ajusta para uma grid responsiva */
   gap: 2rem;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch; /* Garante que todos os cards tenham a mesma altura */
 }
 
 /* Card de Produto */
 .produto-card {
   background-color: #fff;
   padding: 1.5rem;
-  width: 250px;
-  min-height: 350px;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%; /* Garante que todos os cards tenham a mesma altura */
 }
 
 .produto-card img {
   width: 100%;
+  height: auto;
+  object-fit: contain;
   border-radius: 8px;
   margin-bottom: 1rem;
 }
@@ -199,14 +225,14 @@ footer {
 }
 
 .produto-card p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
 }
 
 .produto-card button {
   background-color: #f97316;
   color: white;
-  padding: 0.8rem 1.5rem;
+  padding: 0.6rem 1.2rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -216,6 +242,8 @@ footer {
 .produto-card button:hover {
   background-color: #ea580c;
 }
+
+
 
 /* Modal dentro do Card */
 .modal-content {
@@ -459,31 +487,38 @@ footer {
   font-size: 1rem;
   display: none; /* Inicialmente escondido */
 }
-/* Botão Flutuante WhatsApp */
+/* Estilo do botão do WhatsApp */
 .whatsapp-float {
   position: fixed;
-  bottom: 20px; /* Ajuste para ficar mais visível e não cobrir conteúdo */
-  right: 20px;
+  bottom: 70px;
+  right: 30px;
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #25d366; /* Cor do WhatsApp */
-  border-radius: 50%;
-  padding: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: pulse 2s infinite; /* Adiciona a animação de pulsação */
 }
 
+/* Efeito de pulsação */
+@keyframes pulse {
+  0% { transform: scale(1); }       /* Tamanho normal */
+  50% { transform: scale(1.1); }    /* Aumenta um pouco */
+  100% { transform: scale(1); }     /* Retorna ao tamanho normal */
+}
+
+/* Imagem do WhatsApp */
 .whatsapp-float img {
-  width: 60px; /* Ajuste do tamanho da imagem */
-  height: 60px;
+  width: 70px;  /* Tamanho maior da imagem */
+  height: 70px; /* Tamanho maior da imagem */
   border-radius: 50%;
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease; /* Suaviza a transição do tamanho */
 }
 
-.whatsapp-float:hover img {
-  transform: scale(1.1); /* Efeito de aumentar a imagem quando passar o mouse */
+.whatsapp-float img:hover {
+  transform: scale(1.1); /* Efeito ao passar o mouse: aumenta o tamanho */
 }
+
 
 /* Ajuste no layout dos cards */
 .benefits {
