@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <a href="https://wa.me/5561985402592" target="_blank" class="btn-whatsapp">💬 Comprar</a>
     </div>
   `;  
-
+ 
     categorias[prod.categoria].appendChild(card);
   });
 });
