@@ -12,7 +12,7 @@
       <a href="index.html">Início</a>
       <a href="produtos.html">Produtos</a>
       <a href="#">Contato</a>
-      <span class="cart-icon" id="cart-icon">
+      <span class="cart-icon" id="cart-icon" onclick="exibirCarrinho()">
         <span class="emoji-cart">🛒</span>
         <span class="quantidade-carrinho" id="quantidade-carrinho">0</span>
       </span>
@@ -25,48 +25,118 @@
       <!-- Produtos serão carregados aqui via JS -->
     </div>
   </main>
-
-  <div class="modal-carrinho" id="modal-carrinho">
-    <h3>Seu Carrinho</h3>
-    <div id="itens-carrinho"></div>
-    <div class="resumo-pedido">
-      <h4>Resumo do Pedido</h4>
-      <ul id="lista-resumo"></ul>
-      <p><strong>Total: R$ <span id="total-pedido">0,00</span></strong></p>
-      <button class="btn-finalizar" onclick="finalizarCompraCarrinho()">Finalizar Compra no WhatsApp</button>
-    </div>
+  
+<!-- Modal Carrinho -->
+<div class="modal-carrinho" id="modal-carrinho">
+  <h3>Seu Carrinho</h3>
+  <div id="itens-carrinho"></div>
+  <div class="resumo-pedido">
+    <h4>Resumo do Pedido</h4>
+    <ul id="lista-resumo"></ul>
+    <p><strong>Total: R$ <span id="total-pedido">0,00</span></strong></p>
+    <button class="btn-finalizar" onclick="finalizarCompraCarrinho()">Finalizar Compra no WhatsApp</button>
+    <button class="btn-fechar" onclick="fecharCarrinho()">Fechar</button>
   </div>
+</div>
 
-  <footer>
-    <p>&copy; 2025 Coreano Suplementos. Todos os direitos reservados.</p>
-  </footer>
-
+  
   <script src="js/carrinho.js"></script>
   <script>
+    // Definindo a categoria e os produtos que vão ser carregados
     const categoriaAtual = "creatina";
     const produtosSalvos = JSON.parse(localStorage.getItem("produtos")) || [];
-
+  
     const lista = document.getElementById("produtos-lista");
-
+  
     const produtosFiltrados = produtosSalvos.filter(p => p.categoria === categoriaAtual);
-
+  
     if (produtosFiltrados.length === 0) {
       lista.innerHTML = "<p>Em breve você verá nossos produtos dessa categoria aqui.</p>";
     } else {
-      produtosFiltrados.forEach((produto, index) => {
+      produtosFiltrados.forEach((produto) => {
         const card = document.createElement("div");
         card.className = "produto-card";
-
+  
         card.innerHTML = `
           <img src="${produto.imagem}" alt="${produto.nome}" />
           <h3>${produto.nome}</h3>
           <p>R$${parseFloat(produto.preco).toFixed(2)}</p>
           <button onclick="adicionarCarrinhoDinamico('${produto.id}', '${produto.nome}', ${produto.preco})">Comprar</button>
         `;
-
+  
         lista.appendChild(card);
       });
     }
+  
+// Função para adicionar o produto ao carrinho
+function adicionarCarrinhoDinamico(id, nome, preco) {
+  let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+  // Verifica se o produto já foi adicionado ao carrinho
+  const produtoExistente = carrinho.find(p => p.id === id);
+
+  if (!produtoExistente) {
+    // Se o produto não existir no carrinho, adiciona-o
+    carrinho.push({ id, nome, preco });
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+  }
+
+  atualizarQuantidadeCarrinho();
+  exibirCarrinho();  // Chama a função para exibir o carrinho após adicionar um produto
+}
+
+// Função para atualizar a quantidade de itens no carrinho
+function atualizarQuantidadeCarrinho() {
+  const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+  const quantidadeCarrinho = document.getElementById('quantidade-carrinho');
+  quantidadeCarrinho.textContent = carrinho.length;
+}
+
+// Função para exibir o carrinho e o resumo do pedido
+function exibirCarrinho() {
+  const modalCarrinho = document.getElementById('modal-carrinho');
+  const itensCarrinho = document.getElementById('itens-carrinho');
+  const listaResumo = document.getElementById('lista-resumo');
+  const totalPedido = document.getElementById('total-pedido');
+
+  let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+  itensCarrinho.innerHTML = '';
+  listaResumo.innerHTML = '';
+  let total = 0;
+
+  if (carrinho.length === 0) {
+    itensCarrinho.innerHTML = '<p>Seu carrinho está vazio.</p>';
+  } else {
+    carrinho.forEach(produto => {
+      const itemCarrinho = document.createElement('div');
+      itemCarrinho.classList.add('carrinho-item');
+      itemCarrinho.textContent = `${produto.nome} - R$${produto.preco}`;
+      itensCarrinho.appendChild(itemCarrinho);
+
+      // Adiciona o produto no resumo do pedido
+      const itemResumo = document.createElement('li');
+      itemResumo.textContent = `${produto.nome} - R$${produto.preco}`;
+      listaResumo.appendChild(itemResumo);
+
+      total += produto.preco;
+    });
+    totalPedido.textContent = total.toFixed(2);
+  }
+
+  modalCarrinho.style.display = 'block'; // Exibe o modal com animação
+}
+
+// Função para fechar o modal do carrinho
+function fecharCarrinho() {
+  const modalCarrinho = document.getElementById('modal-carrinho');
+  modalCarrinho.style.display = 'none'; // Fecha o modal
+}
+
+// Atualiza a quantidade de itens no carrinho quando a página carregar
+window.onload = function() {
+  atualizarQuantidadeCarrinho();
+}
+
+
   </script>
-</body>
-</html>
+  

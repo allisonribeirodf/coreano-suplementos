@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerenciar Produtos | Coreano Suplementos</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .painel-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    } 
+    .painel-container h2 {
+      text-align: center;
+      color: #1f2937;
+      margin-bottom: 1.5rem;
+    }
+    .filtros {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .filtros select, .filtros input {
+      padding: 0.6rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    .grid-produtos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .produto-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 1rem;
+      text-align: center;
+    }
+    .produto-card img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .produto-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #111;
+    }
+    .produto-card p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .btn-remover {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn-remover:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div>
+      <a href="painel.html">Cadastrar Produto</a>
+      <a href="gerenciar.html">Gerenciar Produtos</a>
+    </div>
+  </div>
+
+  <div class="painel-container">
+    <h2>Gerenciar Produtos</h2>
+    <div class="filtros">
+      <select id="filtro-categoria">
+        <option value="">Todas as categorias</option>
+        <option value="whey">Whey Protein</option>
+        <option value="creatina">Creatina</option>
+        <option value="pre-treino">Pré-Treino</option>
+        <option value="acessorios">Acessórios</option>
+        <option value="outros-suplementos">outros-suplementos</option>
+      </select>
+      <input type="text" id="busca-produto" placeholder="Buscar produto..." />
+    </div>
+    <div class="grid-produtos" id="grid-produtos"></div>
+  </div>
+
+  <script>
+    const filtroCategoria = document.getElementById('filtro-categoria');
+    const buscaInput = document.getElementById('busca-produto');
+    const gridProdutos = document.getElementById('grid-produtos');
+
+    function renderizarProdutos() {
+      const produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+      const categoriaSelecionada = filtroCategoria.value;
+      const termoBusca = buscaInput.value.toLowerCase();
+
+      gridProdutos.innerHTML = '';
+      const filtrados = produtos.filter(produto => {
+        return (
+          (!categoriaSelecionada || produto.categoria === categoriaSelecionada) &&
+          (!termoBusca || produto.nome.toLowerCase().includes(termoBusca))
+        );
+      });
+
+      if (filtrados.length === 0) {
+        gridProdutos.innerHTML = '<p>Nenhum produto encontrado.</p>';
+        return;
+      }
+
+      filtrados.forEach((produto, index) => {
+        const card = document.createElement('div');
+        card.classList.add('produto-card');
+        card.innerHTML = `
+          <img src="${produto.imagem}" alt="${produto.nome}" />
+          <h4>${produto.nome}</h4>
+          <p><strong>R$ ${parseFloat(produto.preco).toFixed(2)}</strong></p>
+          <p>Categoria: ${produto.categoria}</p>
+          <button class="btn-remover" onclick="removerProduto(${produto.id})">Remover</button>
+        `;
+        gridProdutos.appendChild(card);
+      });
+    }
+
+    function removerProduto(id) {
+      let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+      produtos = produtos.filter(prod => prod.id !== id);
+      localStorage.setItem('produtos', JSON.stringify(produtos));
+      renderizarProdutos();
+    }
+
+    filtroCategoria.addEventListener('change', renderizarProdutos);
+    buscaInput.addEventListener('input', renderizarProdutos);
+
+    document.addEventListener('DOMContentLoaded', renderizarProdutos);
+  </script>
+</body>
+</html>
