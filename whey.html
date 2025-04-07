@@ -53,40 +53,42 @@
 <script>
 
 
-  document.addEventListener("DOMContentLoaded", () => {
-    // Certifique-se de que a lista de produtos seja carregada corretamente
-    console.log("Carregando a página...");
-    const lista = document.getElementById("produtos-lista");
-    
-    // Categoria 'whey' ou qualquer outra categoria
-    const categoriaAtual = "whey";
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Carregando a página...");
 
-    // Carrega os produtos armazenados no localStorage
-    const produtosSalvos = JSON.parse(localStorage.getItem("produtos")) || [];
-    
-    // Filtra os produtos da categoria 'whey'
-    const produtosFiltrados = produtosSalvos.filter(p => p.categoria === categoriaAtual);
+  const lista = document.getElementById("produtos-lista");
+  const categoriaAtual = "whey";
 
-    // Caso não haja produtos da categoria 'whey'
-    if (produtosFiltrados.length === 0) {
-      lista.innerHTML = "<p>Em breve você verá nossos produtos dessa categoria aqui kkkk.</p>";
-    } else {
-      // Exibe os produtos filtrados na tela
-      produtosFiltrados.forEach((produto) => {
-        const card = document.createElement("div");
-        card.className = "produto-card";
+  // Carrega os produtos armazenados no localStorage
+  const produtosSalvos = JSON.parse(localStorage.getItem("produtos")) || [];
+  console.log("Produtos salvos no localStorage:", produtosSalvos); // Verifica se os produtos estão no localStorage
+  
+  // Filtra os produtos da categoria 'whey'
+  const produtosFiltrados = produtosSalvos.filter(p => p.categoria === categoriaAtual);
+  console.log("Produtos filtrados da categoria 'whey':", produtosFiltrados); // Verifica se a filtragem está correta
 
-        card.innerHTML = `
-          <img src="${produto.imagem}" alt="${produto.nome}" />
-          <h3>${produto.nome}</h3>
-          <p>R$${parseFloat(produto.preco).toFixed(2)}</p>
-          <button onclick='abrirModalProduto(event, ${JSON.stringify(produto)})'>Comprar</button>
-        `;
+  // Caso não haja produtos da categoria 'whey'
+  if (produtosFiltrados.length === 0) {
+    lista.innerHTML = "<p>Em breve você verá nossos produtos dessa categoria aqui kkkksss.</p>";
+  } else {
+    produtosFiltrados.forEach((produto) => {
+      console.log("Exibindo produto:", produto); // Verifica se os produtos estão sendo exibidos corretamente
 
-        lista.appendChild(card);
-      });
-    }
-  });
+      const card = document.createElement("div");
+      card.className = "produto-card";
+
+      card.innerHTML = `
+        <img src="${produto.imagem}" alt="${produto.nome}" />
+        <h3>${produto.nome}</h3>
+        <p>R$${parseFloat(produto.preco).toFixed(2)}</p>
+        <button onclick='abrirModalProduto(event, ${JSON.stringify(produto)})'>Comprar</button>
+      `;
+
+      lista.appendChild(card);
+    });
+  }
+});
+
 
   // Função para abrir o modal do produto ao clicar no botão "Comprar"
   function abrirModalProduto(event, produto) {
