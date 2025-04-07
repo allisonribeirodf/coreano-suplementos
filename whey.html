@@ -45,14 +45,17 @@
   </footer>
 
   <!-- Scripts -->
-<script src="js/carrinho.js"></script>
-<script src="js/produtos.js"></script>
-<script src="js/script.js"></script>
 
-  <script>
+  <script src="js/carrinho.js"></script>
+  <script src="js/script.js"></script> 
+  <script src="js/produtos.js"></script> 
+  
+<script>
+
 
   document.addEventListener("DOMContentLoaded", () => {
     // Certifique-se de que a lista de produtos seja carregada corretamente
+    console.log("Carregando a página...");
     const lista = document.getElementById("produtos-lista");
     
     // Categoria 'whey' ou qualquer outra categoria
