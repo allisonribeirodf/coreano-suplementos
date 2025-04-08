@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerenciador de Produtos | Coreano Suplementos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 1rem;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #222;
+      margin-bottom: 2rem;
+    }
+
+    .filtros {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    input, select, button {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button.btn-exportar {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+
+    table {
+      width: 95%;
+      margin: auto;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    th, td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background: #f0f0f0;
+    }
+
+    td img {
+      width: 60px;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    .badge {
+      padding: 3px 8px;
+      background-color: #e0e0e0;
+      border-radius: 12px;
+      font-size: 0.8rem;
+    }
+
+    .btn-editar, .btn-deletar {
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      color: white;
+      margin-right: 4px;
+    }
+
+    .btn-editar {
+      background-color: #007bff;
+    }
+
+    .btn-deletar {
+      background-color: #e53935;
+    }
+
+    /* Modal + overlay */
+    .overlay {
+      position: fixed;
+      display: none;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      z-index: 1000;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .modal h3 {
+      margin-top: 0;
+    }
+
+    .modal input, .modal select {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .modal button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .modal button:first-of-type {
+      background-color: #4CAF50;
+      color: white;
+      margin-right: 10px;
+    }
+
+    .modal button:last-of-type {
+      background-color: #f44336;
+      color: white;
+    }
+
+    @media screen and (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      th {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+    <h1>Gerenciador de Produtos</h1>
+  
+    <div class="filtros">
+      <input type="text" id="filtro-nome" placeholder="🔍 Nome">
+      <select id="filtro-categoria">
+        <option value="">Todas</option>
+        <option value="Whey Protein">Whey Protein</option>
+        <option value="Creatina">Creatina</option>
+        <option value="Pré-Treino">Pré-Treino</option>
+        <option value="Acessórios">Acessórios</option>
+      </select>
+      <button onclick="filtrarProdutos()">Filtrar</button>
+      <button class="btn-exportar" onclick="exportarJSON()">📥 Exportar JSON</button>
+    </div>
+  
+    <table id="tabela-produtos">
+      <thead>
+        <tr>
+          <th>Imagem</th>
+          <th>Nome</th>
+          <th>Preço</th>
+          <th>Categoria</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  
+    <div class="overlay" id="overlay"></div>
+    <div class="modal" id="modal-editar">
+      <h3>Editar Produto</h3>
+      <input type="text" id="edit-nome" placeholder="Nome">
+      <input type="text" id="edit-preco" placeholder="Preço (ex: 99.90)">
+      <input type="text" id="edit-imagem" placeholder="Imagem (ex: creatina.png)">
+      <select id="edit-categoria">
+        <option value="Whey Protein">Whey Protein</option>
+        <option value="Creatina">Creatina</option>
+        <option value="Pré-Treino">Pré-Treino</option>
+        <option value="Acessórios">Acessórios</option>
+      </select>
+      <div style="margin-top: 1rem;">
+        <button onclick="salvarEdicao()">💾 Salvar</button>
+        <button onclick="fecharModal()">❌ Cancelar</button>
+      </div>
+    </div>
+  
+    <script>
+      let produtos = [];
+      let editandoIndex = null;
+  
+      async function carregarProdutos() {
+        const res = await fetch("produtos.json");
+        produtos = await res.json();
+        localStorage.setItem("produtos_temp", JSON.stringify(produtos));
+        renderizarTabela(produtos);
+      }
+  
+      function renderizarTabela(lista) {
+        const tbody = document.querySelector("#tabela-produtos tbody");
+        tbody.innerHTML = "";
+  
+        lista.forEach((prod, index) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td><img src="images/${prod.imagem}" alt="${prod.nome}"></td>
+            <td><strong>${prod.nome}</strong></td>
+            <td style="color: green;">R$ ${parseFloat(prod.preco).toFixed(2).replace('.', ',')}</td>
+            <td><span class="badge">${prod.categoria}</span></td>
+            <td>
+              <button class="btn-editar" onclick="abrirModal(${index})">📝 Editar</button>
+              <button class="btn-deletar" onclick="deletarProduto(${index})">🗑️ Excluir</button>
+            </td>
+          `;
+          tbody.appendChild(row);
+        });
+      }
+  
+      function abrirModal(index) {
+        editandoIndex = index;
+        const prod = JSON.parse(localStorage.getItem("produtos_temp"))[index];
+        document.getElementById("edit-nome").value = prod.nome;
+        document.getElementById("edit-preco").value = prod.preco;
+        document.getElementById("edit-imagem").value = prod.imagem;
+        document.getElementById("edit-categoria").value = prod.categoria;
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("modal-editar").style.display = "block";
+      }
+  
+      function fecharModal() {
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("modal-editar").style.display = "none";
+      }
+  
+      function salvarEdicao() {
+        const nome = document.getElementById("edit-nome").value;
+        const preco = parseFloat(document.getElementById("edit-preco").value.replace(",", "."));
+        const imagem = document.getElementById("edit-imagem").value;
+        const categoria = document.getElementById("edit-categoria").value;
+  
+        const produtosAtualizados = JSON.parse(localStorage.getItem("produtos_temp"));
+        produtosAtualizados[editandoIndex] = { ...produtosAtualizados[editandoIndex], nome, preco, imagem, categoria };
+  
+        localStorage.setItem("produtos_temp", JSON.stringify(produtosAtualizados));
+        renderizarTabela(produtosAtualizados);
+        fecharModal();
+      }
+  
+      function deletarProduto(index) {
+        if (confirm("Tem certeza que deseja excluir este produto?")) {
+          const produtosAtualizados = JSON.parse(localStorage.getItem("produtos_temp"));
+          produtosAtualizados.splice(index, 1);
+          localStorage.setItem("produtos_temp", JSON.stringify(produtosAtualizados));
+          renderizarTabela(produtosAtualizados);
+        }
+      }
+  
+      function exportarJSON() {
+        const dados = localStorage.getItem("produtos_temp");
+        const blob = new Blob([dados], { type: "application/json" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "produtos_atualizado.json";
+        link.click();
+      }
+  
+      function filtrarProdutos() {
+        const nomeFiltro = document.getElementById("filtro-nome").value.toLowerCase();
+        const catFiltro = document.getElementById("filtro-categoria").value;
+        const todos = JSON.parse(localStorage.getItem("produtos_temp"));
+        const filtrados = todos.filter(p =>
+          p.nome.toLowerCase().includes(nomeFiltro) &&
+          (catFiltro === "" || p.categoria === catFiltro)
+        );
+        renderizarTabela(filtrados);
+      }
+  
+      carregarProdutos();
+    </script>
+  </body>
+  </html>
+  

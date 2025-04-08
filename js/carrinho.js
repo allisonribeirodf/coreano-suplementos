@@ -3,7 +3,7 @@ if (!localStorage.getItem("carrinho")) {
   localStorage.setItem("carrinho", JSON.stringify([]));
 }
 
-// Atualiza o contador do carrinho no topo
+// Atualiza o contador no topo
 function atualizarQuantidadeCarrinho() {
   const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
   const contador = document.getElementById("quantidade-carrinho");
@@ -20,13 +20,15 @@ function atualizarQuantidadeCarrinho() {
 // Adiciona item ao carrinho
 function adicionarCarrinhoDinamico(id, nome, preco) {
   const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-  carrinho.push({ id, nome, preco });
+  const precoNumerico = parseFloat(preco.replace("R$", "").replace(",", ".").trim());
+carrinho.push({ id, nome, preco: precoNumerico });
+
   localStorage.setItem("carrinho", JSON.stringify(carrinho));
   atualizarQuantidadeCarrinho();
   alert(`${nome} adicionado ao carrinho!`);
 }
 
-// Carrega os itens no modal do carrinho
+// Carrega itens no modal do carrinho
 function carregarCarrinho() {
   const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
   const container = document.getElementById("itens-carrinho");
@@ -37,7 +39,7 @@ function carregarCarrinho() {
   resumo.innerHTML = "";
 
   const agrupado = {};
-  carrinho.forEach((item) => {
+  carrinho.forEach(item => {
     const key = `${item.nome}|${item.preco}`;
     if (!agrupado[key]) {
       agrupado[key] = { ...item, quantidade: 1 };
@@ -47,7 +49,7 @@ function carregarCarrinho() {
   });
 
   let total = 0;
-  Object.keys(agrupado).forEach((key) => {
+  Object.keys(agrupado).forEach(key => {
     const item = agrupado[key];
     const precoTotal = parseFloat(item.preco) * item.quantidade;
     total += precoTotal;
@@ -68,30 +70,22 @@ function carregarCarrinho() {
   totalSpan.innerText = total.toFixed(2);
 }
 
+// Remover todos do mesmo produto
 function removerTodosDoMesmoProduto(chave) {
   const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
   const [nome, preco] = chave.split("|");
 
-  const novoCarrinho = carrinho.filter(
-    item => !(item.nome === nome && String(item.preco) === preco)
-  );
+  const novoCarrinho = carrinho.filter(item => !(item.nome === nome && String(item.preco) === preco));
 
   localStorage.setItem("carrinho", JSON.stringify(novoCarrinho));
   carregarCarrinho();
   atualizarQuantidadeCarrinho();
 }
 
-function removerItemCarrinho(index) {
-  const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-  carrinho.splice(index, 1);
-  localStorage.setItem("carrinho", JSON.stringify(carrinho));
-  carregarCarrinho();
-  atualizarQuantidadeCarrinho();
-}
-
+// Finaliza compra via WhatsApp
 function finalizarCompraCarrinho() {
   const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-  
+
   if (carrinho.length === 0) {
     alert("Seu carrinho está vazio!");
     return;
@@ -102,36 +96,10 @@ function finalizarCompraCarrinho() {
 
   const texto = `Olá! Gostaria de comprar os seguintes produtos:\n\n${mensagem}\n\nTotal: R$ ${total}`;
   const url = `https://wa.me/5561985402592?text=${encodeURIComponent(texto)}`;
-  
-  // Abre o link do WhatsApp
   window.open(url, '_blank');
 }
 
-// Ao clicar no ícone do carrinho, exibe o modal
-document.addEventListener("DOMContentLoaded", () => {
-  atualizarQuantidadeCarrinho();
-
-  const cartIcon = document.getElementById("cart-icon");
-  const carrinhoOverlay = document.getElementById("carrinho-overlay");
-
-  if (cartIcon && carrinhoOverlay) {
-    cartIcon.addEventListener("click", () => {
-      carregarCarrinho(); // Carrega os itens do carrinho
-      carrinhoOverlay.style.display = "flex"; // Exibe o fundo escuro e o modal
-      document.body.style.overflow = 'hidden'; // Impede rolagem ao abrir o modal
-    });
-  }
-
-  // Fechar o modal quando clicar fora do modal
-  window.addEventListener("click", (event) => {
-    if (event.target === carrinhoOverlay) {
-      carrinhoOverlay.style.display = "none"; // Fecha o modal e o fundo escuro
-      document.body.style.overflow = 'auto'; // Permite rolagem novamente
-    }
-  });
-});
-
-// Função para limpar o carrinho
+// Limpar carrinho inteiro
 function limparCarrinho() {
   if (confirm("Tem certeza que deseja remover todos os itens do carrinho?")) {
     localStorage.removeItem("carrinho");
@@ -139,3 +107,32 @@ function limparCarrinho() {
     atualizarQuantidadeCarrinho();
   }
 }
+
+// Inicializa eventos
+document.addEventListener("DOMContentLoaded", () => {
+  atualizarQuantidadeCarrinho();
+
+  const cartIcon = document.getElementById("cart-icon");
+  const modalCarrinho = document.getElementById("modal-carrinho");
+  const backdropModal = document.getElementById("backdrop-modal");
+
+  if (cartIcon && modalCarrinho) {
+    cartIcon.addEventListener("click", () => {
+      if (modalCarrinho.style.display === "block") {
+        modalCarrinho.style.display = "none";
+        backdropModal.style.display = "none";
+      } else {
+        carregarCarrinho();
+        modalCarrinho.style.display = "block";
+        backdropModal.style.display = "block";
+      }
+    });
+  }
+
+  window.addEventListener("click", (event) => {
+    if (event.target === backdropModal) {
+      modalCarrinho.style.display = "none";
+      backdropModal.style.display = "none";
+    }
+  });
+});

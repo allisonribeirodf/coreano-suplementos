@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Whey Protein | Coreano Suplementos</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="navbar">
+    <div>
+      <a href="index.html">Início</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="#">Contato</a>
+      <span class="cart-icon" id="cart-icon">
+        <span class="emoji-cart">🛒</span>
+        <span class="quantidade-carrinho" id="quantidade-carrinho">0</span>
+      </span>
+    </div>
+  </div>
+
+  <main class="produtos-container">
+    <h2>Whey Protein</h2>
+    <div class="produtos-grid" id="produtos-container"></div>
+  </main>
+
+ <!-- Modal de fundo (backdrop) -->
+<div id="backdrop-modal" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.6); z-index: 999; display: none;"></div>
+
+<!-- Modal do carrinho -->
+<div id="modal-carrinho" class="modal-carrinho" style="display:none;">
+  <h3>Seu Carrinho</h3>
+  <div id="itens-carrinho"></div>
+  <div class="resumo-pedido">
+    <h4>Resumo do Pedido</h4>
+    <ul id="lista-resumo"></ul>
+    <p><strong>Total: R$ <span id="total-pedido">0,00</span></strong></p>
+    <button class="btn-finalizar" onclick="finalizarCompraCarrinho()">Finalizar Compra no WhatsApp</button>
+    <button onclick="limparCarrinho()" style="margin-top: 0.5rem; background-color: #f44336; color: white; width: 100%; border: none; padding: 0.75rem; border-radius: 8px; font-weight: bold;">🪟 Limpar Carrinho</button>
+  </div>
+</div>
+
+  <footer>
+    <p>&copy; 2025 Coreano Suplementos. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/carrinho.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

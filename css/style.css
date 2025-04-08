@@ -383,24 +383,19 @@ footer p {
 /* ... (seu CSS anterior permanece igual até antes do modal-carrinho) ... */
 /* Modal do Carrinho estilo card sofisticado */
 .modal-carrinho {
-  background-color: #ffffff;
-  width: 90%;
-  max-width: 420px;
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-  animation: fadeInScale 0.3s ease;
-  display: block; /* Para garantir que o modal seja exibido */
-  position: fixed; /* Fixa o modal na tela */
-  top: 50%; /* Posiciona no meio verticalmente */
-  left: 50%; /* Posiciona no meio horizontalmente */
-  transform: translate(-50%, -50%); /* Centraliza o modal */
-  z-index: 10000;
-  max-height: 80%; /* Impede que o modal ultrapasse o limite da tela */
-  overflow-y: auto; /* Permite rolagem, caso o conteúdo seja maior que o modal */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10000; /* Fica por cima do fundo escuro */
+  width: 80%;
+  max-width: 500px;
+  display: none; /* Inicialmente escondido */
 }
-
-
 
 
 #itens-carrinho {
@@ -537,19 +532,10 @@ footer p {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex; /* Alterado de 'none' para 'flex' */
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  opacity: 0; /* Inicialmente invisível */
-  transition: opacity 0.3s ease;
+  background: rgba(0, 0, 0, 0.6); /* Escurece o fundo */
+  z-index: 9999; /* Fica por cima de outros elementos */
+  display: none; /* Inicialmente escondido */
 }
-
-.overlay-carrinho.active {
-  opacity: 1; /* Quando ativado, ficará visível */
-}
-
 
 .mini-modal {
   position: fixed;
@@ -570,4 +556,58 @@ footer p {
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
+}
+
+/* Estilo da tabela bonita */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+td img {
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.15);
+}
+
+/* Botões */
+.btn-editar, .btn-deletar {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.btn-editar {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-deletar {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-editar:hover {
+  background-color: #0056b3;
+}
+
+.btn-deletar:hover {
+  background-color: #c82333;
 }
