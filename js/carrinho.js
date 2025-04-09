@@ -90,7 +90,7 @@ function finalizarCompraCarrinho() {
     return;
   }
 
-  // Agrupar itens por nome
+  // Agrupando por nome
   const agrupado = {};
   carrinho.forEach(item => {
     if (!agrupado[item.nome]) {
@@ -105,7 +105,7 @@ function finalizarCompraCarrinho() {
   });
 
   let mensagem = `🛒 *Pedido via site - Coreano Suplementos*\n\n`;
-  mensagem += `*Itens do pedido:*\n`;
+  mensagem += `📋 *Itens do pedido:*\n`;
 
   let total = 0;
   let index = 1;
@@ -118,12 +118,13 @@ function finalizarCompraCarrinho() {
     mensagem += `${index++}. ${item.nome} (x${item.quantidade})\n   Subtotal: R$ ${subtotal}\n\n`;
   }
 
-  mensagem += `*Total do pedido:* R$ ${total.toFixed(2)}\n\n`;
-  mensagem += `Gostaria de finalizar este pedido.`;
+  mensagem += `💰 *Total do pedido:* R$ ${total.toFixed(2)}\n\n`;
+  mensagem += `📦 Gostaria de finalizar este pedido.`;
 
   const url = `https://wa.me/5561985402592?text=${encodeURIComponent(mensagem)}`;
   window.open(url, '_blank');
 }
+
 
 
 
