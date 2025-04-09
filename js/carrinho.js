@@ -90,7 +90,7 @@ function finalizarCompraCarrinho() {
     return;
   }
 
-  // Agrupando por nome
+  // Agrupar por nome
   const agrupado = {};
   carrinho.forEach(item => {
     if (!agrupado[item.nome]) {
@@ -104,8 +104,8 @@ function finalizarCompraCarrinho() {
     }
   });
 
-  let mensagem = `🛒 *Pedido via site - Coreano Suplementos*\n\n`;
-  mensagem += `📋 *Itens do pedido:*\n`;
+  let mensagem = `PEDIDO VIA SITE - COREANO SUPLEMENTOS\n\n`;
+  mensagem += `RESUMO DO PEDIDO:\n`;
 
   let total = 0;
   let index = 1;
@@ -115,17 +115,15 @@ function finalizarCompraCarrinho() {
     const subtotal = (item.preco * item.quantidade).toFixed(2);
     total += parseFloat(subtotal);
 
-    mensagem += `${index++}. ${item.nome} (x${item.quantidade})\n   Subtotal: R$ ${subtotal}\n\n`;
+    mensagem += `${index++}. ${item.nome}\n   Quantidade: ${item.quantidade}\n   Subtotal: R$ ${subtotal}\n\n`;
   }
 
-  mensagem += `💰 *Total do pedido:* R$ ${total.toFixed(2)}\n\n`;
-  mensagem += `📦 Gostaria de finalizar este pedido.`;
+  mensagem += `TOTAL DO PEDIDO: R$ ${total.toFixed(2)}\n\n`;
+  mensagem += `Gostaria de finalizar este pedido.`;
 
   const url = `https://wa.me/5561985402592?text=${encodeURIComponent(mensagem)}`;
   window.open(url, '_blank');
 }
-
-
 
 
 
