@@ -21,12 +21,12 @@
 
   <main class="produtos-container">
     <h2>Acessórios</h2>
-    <div class="produtos-grid" id="produtos-lista">
-      <!-- Produtos serão carregados aqui via JS -->
-    </div>
+    <div class="produtos-grid" id="produtos-container"></div>
   </main>
 
-  <div class="modal-carrinho" id="modal-carrinho">
+  <div id="backdrop-modal" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.6); z-index: 999; display: none;"></div>
+
+  <div id="modal-carrinho" class="modal-carrinho" style="display:none;">
     <h3>Seu Carrinho</h3>
     <div id="itens-carrinho"></div>
     <div class="resumo-pedido">
@@ -34,6 +34,7 @@
       <ul id="lista-resumo"></ul>
       <p><strong>Total: R$ <span id="total-pedido">0,00</span></strong></p>
       <button class="btn-finalizar" onclick="finalizarCompraCarrinho()">Finalizar Compra no WhatsApp</button>
+      <button onclick="limparCarrinho()" style="margin-top: 0.5rem; background-color: #f44336; color: white; width: 100%; border: none; padding: 0.75rem; border-radius: 8px; font-weight: bold;">🪟 Limpar Carrinho</button>
     </div>
   </div>
 
@@ -41,32 +42,13 @@
     <p>&copy; 2025 Coreano Suplementos. Todos os direitos reservados.</p>
   </footer>
 
+  <a href="https://wa.me/5561985402592" target="_blank" class="whatsapp-float">
+    <img src="images/logodowpp.png" alt="Fale conosco via WhatsApp" />
+  </a>
+  
+  <!-- Scripts -->
   <script src="js/carrinho.js"></script>
-  <script>
-    const categoriaAtual = "acessorios";
-    const produtosSalvos = JSON.parse(localStorage.getItem("produtos")) || [];
+  <script src="js/script.js"></script>
 
-    const lista = document.getElementById("produtos-lista");
-
-    const produtosFiltrados = produtosSalvos.filter(p => p.categoria === categoriaAtual);
-
-    if (produtosFiltrados.length === 0) {
-      lista.innerHTML = "<p>Em breve você verá nossos produtos dessa categoria aqui.</p>";
-    } else {
-      produtosFiltrados.forEach((produto, index) => {
-        const card = document.createElement("div");
-        card.className = "produto-card";
-
-        card.innerHTML = `
-          <img src="${produto.imagem}" alt="${produto.nome}" />
-          <h3>${produto.nome}</h3>
-          <p>R$${parseFloat(produto.preco).toFixed(2)}</p>
-          <button onclick="adicionarCarrinhoDinamico('${produto.id}', '${produto.nome}', ${produto.preco})">Comprar</button>
-        `;
-
-        lista.appendChild(card);
-      });
-    }
-  </script>
 </body>
 </html>

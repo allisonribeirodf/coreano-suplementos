@@ -82,7 +82,6 @@ function removerTodosDoMesmoProduto(chave) {
   atualizarQuantidadeCarrinho();
 }
 
-// Finaliza compra via WhatsApp
 function finalizarCompraCarrinho() {
   const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
@@ -91,13 +90,44 @@ function finalizarCompraCarrinho() {
     return;
   }
 
-  const mensagem = carrinho.map(item => `${item.nome} - R$ ${item.preco}`).join('\n');
-  const total = carrinho.reduce((acc, item) => acc + parseFloat(item.preco), 0).toFixed(2);
+  // Agrupar itens por nome
+  const agrupado = {};
+  carrinho.forEach(item => {
+    if (!agrupado[item.nome]) {
+      agrupado[item.nome] = {
+        nome: item.nome,
+        preco: parseFloat(item.preco),
+        quantidade: 1
+      };
+    } else {
+      agrupado[item.nome].quantidade += 1;
+    }
+  });
 
-  const texto = `Olá! Gostaria de comprar os seguintes produtos:\n\n${mensagem}\n\nTotal: R$ ${total}`;
-  const url = `https://wa.me/5561985402592?text=${encodeURIComponent(texto)}`;
+  let mensagem = `🛒 *Pedido via site - Coreano Suplementos*\n\n`;
+  mensagem += `*Itens do pedido:*\n`;
+
+  let total = 0;
+  let index = 1;
+
+  for (const key in agrupado) {
+    const item = agrupado[key];
+    const subtotal = (item.preco * item.quantidade).toFixed(2);
+    total += parseFloat(subtotal);
+
+    mensagem += `${index++}. ${item.nome} (x${item.quantidade})\n   Subtotal: R$ ${subtotal}\n\n`;
+  }
+
+  mensagem += `*Total do pedido:* R$ ${total.toFixed(2)}\n\n`;
+  mensagem += `Gostaria de finalizar este pedido.`;
+
+  const url = `https://wa.me/5561985402592?text=${encodeURIComponent(mensagem)}`;
   window.open(url, '_blank');
 }
+
+
+
+
 
 // Limpar carrinho inteiro
 function limparCarrinho() {

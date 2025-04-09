@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ${prod.precoAntigo ? `<span class="preco-antigo">R$ ${parseFloat(prod.precoAntigo).toFixed(2).replace(".", ",")}</span>` : ""}
     <span class="preco-atual">R$ ${parseFloat(prod.preco).toFixed(2).replace(".", ",")}</span>
   </span>
-  <button class="btn-comprar-direto" data-prod='${JSON.stringify(prod)}'>💬 Comprar</button>
+  <button class="btn-comprar-direto" data-prod='${JSON.stringify(prod)}'>🛒 Comprar</button>
 `;
 
         container.appendChild(card);

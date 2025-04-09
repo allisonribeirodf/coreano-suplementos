@@ -4,7 +4,7 @@
         "nome": "Isolate Protein Fuse 1,8kg - Dark Lab",
         "descricao": "Suplemento alimentar rico em proteína.",
         "preco": "160.90",
-        "precoAntigo": "180.90",
+        "precoAntigo": "179.90",
         "imagem": "wheydarklab1.8kg.png",
         "categoria": "Whey Protein",
         "temSabores": "sim",
@@ -225,5 +225,17 @@
         "categoria": "pretreino",
         "temSabores": "sim",
         "sabores": ["Limão"]
+      },
+
+      {
+        "id": "1714481924008",
+        "nome": "Galão Transparente e Preto 2 Litros - Growth Supplements",
+        "descricao": "Ideal para manter seu corpo sempre hidratado.",
+        "preco": "24.99",
+        "precoAntigo": "30.00",
+        "imagem": "galaotransparentepreto.png",
+        "categoria": "acessorios",
+        "temSabores": "não",
+        "sabores": []
       }
 ]
