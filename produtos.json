@@ -1,1 +1,121 @@
-[{"id":1744081972005,"nome":"adda","descricao":"asdad","preco":"11.33","imagem":"pre-treino.png","categoria":"Whey Protein","temSabores":"sim","sabores":["Frutas amarelas","Limão"]}]
+[
+    {
+        "id": "1714481920002",
+        "nome": "Isolate Protein Fuse 1,8kg - Dark Lab",
+        "descricao": "Suplemento alimentar rico em proteína.",
+        "preco": "180.90",
+        "precoAntigo": "160.90",
+        "imagem": "wheydarklab1.8kg.png",
+        "categoria": "Whey Protein",
+        "temSabores": "sim",
+        "sabores": ["Chocolate"]
+      },
+
+      {
+        "id": "1714481920003",
+        "nome": "Whey Protein Concentrado 1KG - Dark Lab",
+        "descricao": "Suplemento alimentar rico em proteína.",
+        "preco": "137.90",
+        "precoAntigo": "149.90",
+        "imagem": "wheyconcentrate1k.png",
+        "categoria": "Whey Protein",
+        "temSabores": "sim",
+        "sabores": ["Baunilha"]
+      },
+
+      {
+        "id": "1714481920004",
+        "nome": "Isolate Protein Fuse 900g - Dark Lab",
+        "descricao": "Suplemento alimentar rico em proteína.",
+        "preco": "110.90",
+        "precoAntigo": "120.90",
+        "imagem": "wheydarklabfuse900g.png",
+        "categoria": "Whey Protein",
+        "temSabores": "sim",
+        "sabores": ["Morango"]
+      },
+
+    {
+        "id": "1714481920005",
+        "nome": "Whey One Refil 900g - Dark Lab",
+        "descricao": "Suplemento alimentar rico em proteína.",
+        "preco": "95.90",
+        "precoAntigo": "115.90",
+        "imagem": "wheydarklabone900g.png",
+        "categoria": "Whey Protein",
+        "temSabores": "sim",
+        "sabores": ["Chocolate"]
+      },
+
+      {
+        "id": "17144819200059",
+        "nome": "Creamass Hipercalorico com Creatina 3Kg Morango/Chocolate",
+        "descricao": "Auxilia na construção e aumento de massa muscular; Auxilia no aumento da resistência física; Auxilia no aumento da energia.",
+        "preco": "119.90",
+        "precoAntigo": "135.90",
+        "imagem": "hipercaloricointegral3kg.png",
+        "categoria": "Hipercalorico",
+        "temSabores": "sim",
+        "sabores": ["Chocolate","Morango"]
+      },
+
+      {
+        "id": "1714481920008",
+        "nome": "Hiper Mass Flavour 2,5Kg Morango/Chocolate, Atlhetica Nutrition",
+        "descricao": "Suplemento alimentar rico em proteína.",
+        "preco": "95.90",
+        "precoAntigo": "115.90",
+        "imagem": "hipercaloricoathetica2.5kg.png",
+        "categoria": "Hipercalorico",
+        "temSabores": "sim",
+        "sabores": ["Chocolate", "Morango"]
+      },
+
+      {
+        "id": "1714481920008",
+        "nome": "Hiper Mass (1kg) Sabor Chocolate - Growth Supplements",
+        "descricao": "Suplemento alimentar rico em proteína.",
+        "preco": "85.90",
+        "precoAntigo": "100.00",
+        "imagem": "hipercaloricogrowth1kg.png",
+        "categoria": "Hipercalorico",
+        "temSabores": "sim",
+        "sabores": ["Chocolate"]
+      },
+
+      {
+        "id": "1714481920008",
+        "nome": "Creatina Pura 300g - Dark Lab",
+        "descricao": "A creatina mais pura do Brasil, aprovada por Laudo pela ABENUTRI.",
+        "preco": "79.90",
+        "precoAntigo": "100.00",
+        "imagem": "creatinadarklab300g.png",
+        "categoria": "creatina",
+        "temSabores": "sim",
+        "sabores": ["NEUTRO"]
+      },
+      
+      {
+        "id": "1714481920008",
+        "nome": "Max Titanium Creatina - Suplemento alimentar de creatina em pó, 300g",
+        "descricao": "Creatina Monohidratada.",
+        "preco": "89.90",
+        "precoAntigo": "100.00",
+        "imagem": "creatinamax300g.png",
+        "categoria": "creatina",
+        "temSabores": "sim",
+        "sabores": ["NEUTRO"]
+      },
+
+      {
+        "id": "1714481920008",
+        "nome": "FTW Creatina Monohidratada 100% Pura, 300g",
+        "descricao": "Explosão de Energia, Força e Resistência - Absorção Rápida para Ganho de Massa e Performance.",
+        "preco": "75.90",
+        "precoAntigo": "94.99",
+        "imagem": "creatinaftw300g.png",
+        "categoria": "creatina",
+        "temSabores": "sim",
+        "sabores": ["NEUTRO"]
+      }
+]

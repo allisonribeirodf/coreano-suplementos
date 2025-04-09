@@ -19,12 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = document.createElement("div");
         card.className = "produto-card";
         card.innerHTML = `
-          <img src="images/${prod.imagem}" alt="${prod.nome}">
-          <h3>${prod.nome}</h3>
-          <p>${prod.descricao}</p>
-          <span class="preco">Preço: <strong>R$ ${parseFloat(prod.preco).toFixed(2).replace(".", ",")}</strong></span>
-          <button class="btn-comprar-direto" data-prod='${JSON.stringify(prod)}'>💬 Comprar</button>
-        `;
+  <img src="images/${prod.imagem}" alt="${prod.nome}">
+  <h3>${prod.nome}</h3>
+  <p>${prod.descricao}</p>
+  <span class="preco-produto">
+    ${prod.precoAntigo ? `<span class="preco-antigo">R$ ${parseFloat(prod.precoAntigo).toFixed(2).replace(".", ",")}</span>` : ""}
+    <span class="preco-atual">R$ ${parseFloat(prod.preco).toFixed(2).replace(".", ",")}</span>
+  </span>
+  <button class="btn-comprar-direto" data-prod='${JSON.stringify(prod)}'>💬 Comprar</button>
+`;
+
         container.appendChild(card);
       });
     })

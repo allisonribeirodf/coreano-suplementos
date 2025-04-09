@@ -611,3 +611,21 @@ td img {
 .btn-deletar:hover {
   background-color: #c82333;
 }
+
+.preco-produto {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.preco-antigo {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 0.95rem;
+  margin-right: 0.5rem;
+}
+
+.preco-atual {
+  color: #f97316;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
