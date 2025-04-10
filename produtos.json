@@ -1,49 +1,43 @@
 [
   {
     "id": "1714481920002",
-    "nome": "Isolate Protein Fuse 1,8kg - Dark Lab",
+    "nome": "Isolate Protein Fuse 1,8kg Sabor Chocolate- Dark Lab",
     "descricao": "Suplemento alimentar rico em proteína.",
     "preco": "160.90",
     "precoAntigo": "179.90",
     "imagem": "wheydarklab1.8kg.png",
     "categoria": "Whey Protein",
-    "temSabores": "sim",
-    "sabores": [
-      "Chocolate"
-    ],
+    "temSabores": "não",
+    "sabores": [],
     "situacao": "ativo"
   },
   {
     "id": "1714481920004",
-    "nome": "Isolate Protein Fuse 900g - Dark Lab",
+    "nome": "Isolate Protein Fuse 900g Sabor Morango - Dark Lab",
     "descricao": "Suplemento alimentar rico em proteína.",
     "preco": "110.90",
     "precoAntigo": "120.90",
     "imagem": "wheydarklabfuse900g.png",
     "categoria": "Whey Protein",
-    "temSabores": "sim",
-    "sabores": [
-      "Morango"
-    ],
+    "temSabores": "não",
+    "sabores": [],
     "situacao": "ativo"
   },
   {
     "id": "1714481920005",
-    "nome": "Whey One Refil 900g - Dark Lab",
+    "nome": "Whey One Refil 900g Sabor Chocolate -  Dark Lab",
     "descricao": "Suplemento alimentar rico em proteína.",
     "preco": "95.90",
     "precoAntigo": "115.90",
     "imagem": "wheydarklabone900g.png",
     "categoria": "Whey Protein",
-    "temSabores": "sim",
-    "sabores": [
-      "Chocolate"
-    ],
+    "temSabores": "não",
+    "sabores": [],
     "situacao": "ativo"
   },
   {
     "id": "1714481920005",
-    "nome": "Whey Protein Concentrado (1KG) - Growth Supplements",
+    "nome": "Whey Protein Concentrado (1KG) VÁRIOS SABORES - Growth Supplements",
     "descricao": "Whey protein Growth fornece proteínas para quem deseja hipertrofia e definição muscular.",
     "preco": "139.90",
     "precoAntigo": "149.90",
@@ -60,7 +54,7 @@
   },
   {
     "id": "17144819200059",
-    "nome": "Creamass Hipercalorico com Creatina 3Kg Morango/Chocolate",
+    "nome": "Creamass Hipercalorico com Creatina 3Kg Morango/Chocolate - IntegralMedic",
     "descricao": "Auxilia na construção e aumento de massa muscular; Auxilia no aumento da resistência física; Auxilia no aumento da energia.",
     "preco": "119.90",
     "precoAntigo": "135.90",
@@ -75,7 +69,7 @@
   },
   {
     "id": "1714481920008",
-    "nome": "Hiper Mass Flavour 2,5Kg Morango/Chocolate, Atlhetica Nutrition",
+    "nome": "Hiper Mass Flavour 2,5Kg Morango/Chocolate - Atlhetica Nutrition",
     "descricao": "Suplemento alimentar rico em proteína.",
     "preco": "95.90",
     "precoAntigo": "115.90",
@@ -91,8 +85,8 @@
   {
     "id": "1714481920008",
     "nome": "Hiper Mass (1kg) Sabor Chocolate - Growth Supplements",
-    "descricao": "Suplemento alimentar rico em proteína.",
-    "preco": "85.90",
+    "descricao": "Suplemento alimentar rico em proteína (37g por porção).",
+    "preco": "80.00",
     "precoAntigo": "100.00",
     "imagem": "hipercaloricogrowth1kg.png",
     "categoria": "Hipercalorico",
@@ -110,10 +104,8 @@
     "precoAntigo": "100.00",
     "imagem": "creatinadarklab300g.png",
     "categoria": "creatina",
-    "temSabores": "sim",
-    "sabores": [
-      "NEUTRO"
-    ],
+    "temSabores": "não",
+    "sabores": [],
     "situacao": "ativo"
   },
   {
@@ -124,10 +116,8 @@
     "precoAntigo": "100.00",
     "imagem": "creatinamax300g.png",
     "categoria": "creatina",
-    "temSabores": "sim",
-    "sabores": [
-      "NEUTRO"
-    ],
+    "temSabores": "não",
+    "sabores": [],
     "situacao": "ativo"
   },
   {
@@ -138,10 +128,8 @@
     "precoAntigo": "94.99",
     "imagem": "creatinaftw300g.png",
     "categoria": "creatina",
-    "temSabores": "sim",
-    "sabores": [
-      "NEUTRO"
-    ],
+    "temSabores": "não",
+    "sabores": [],
     "situacao": "ativo"
   },
   {
@@ -248,7 +236,7 @@
     "id": "1714481924008",
     "nome": "B.O.P.E Pré Treino - 300G Limão - Black Skull, Black Skull",
     "descricao": "Pré-Workout com 200mg de cafeína.",
-    "preco": "89.90",
+    "preco": "75.90",
     "precoAntigo": "114.90",
     "imagem": "pretreinoB.O.P.E.png",
     "categoria": "pretreino",
@@ -258,14 +246,184 @@
     ],
     "situacao": "ativo"
   },
+
   {
     "id": "1714481924008",
     "nome": "Galão Transparente e Preto 2 Litros - Growth Supplements",
     "descricao": "Ideal para manter seu corpo sempre hidratado.",
-    "preco": "24.99",
-    "precoAntigo": "30.00",
+    "preco": "29.90",
+    "precoAntigo": "35.00",
     "imagem": "galaotransparentepreto.png",
     "categoria": "acessorios",
+    "temSabores": "não",
+    "sabores": [],
+    "situacao": "ativo"
+  },
+
+  {
+    "id": "1714481924008",
+    "nome": "Galão Transparente e Rosa 2 Litros - Growth Supplements",
+    "descricao": "Ideal para manter seu corpo sempre hidratado.",
+    "preco": "29.90",
+    "precoAntigo": "35.00",
+    "imagem": "galaotransparenterosa.png",
+    "categoria": "acessorios",
+    "temSabores": "não",
+    "sabores": [],
+    "situacao": "ativo"
+  },
+
+  {
+    "id": "1714481924008",
+    "nome": "Galão Transparente vermelho 2 Litros - Growth Supplements",
+    "descricao": "Ideal para manter seu corpo sempre hidratado.",
+    "preco": "29.90",
+    "precoAntigo": "35.00",
+    "imagem": "galaovermelho.png",
+    "categoria": "acessorios",
+    "temSabores": "não",
+    "sabores": [],
+    "situacao": "ativo"
+  },
+
+  {
+    "id": "1714481924008",
+    "nome": "Galão Verde Fluorescente 2 Litros - Growth Supplements",
+    "descricao": "Ideal para manter seu corpo sempre hidratado.",
+    "preco": "29.90",
+    "precoAntigo": "35.00",
+    "imagem": "galaoverdeflorecente.png",
+    "categoria": "acessorios",
+    "temSabores": "não",
+    "sabores": [],
+    "situacao": "ativo"
+  },
+
+  {
+    "id": "1714481924008",
+    "nome": "Galão Rosa 2 Litros - Growth Supplements",
+    "descricao": "Ideal para manter seu corpo sempre hidratado.",
+    "preco": "29.90",
+    "precoAntigo": "35.00",
+    "imagem": "galaorosa.png",
+    "categoria": "acessorios",
+    "temSabores": "não",
+    "sabores": [],
+    "situacao": "ativo"
+  },
+
+  {
+    "id": "1714481924008",
+    "nome": "Galão Amarelo 2 Litros - Growth Supplements",
+    "descricao": "Ideal para manter seu corpo sempre hidratado.",
+    "preco": "29.90",
+    "precoAntigo": "35.00",
+    "imagem": "galaoamarelo.png",
+    "categoria": "acessorios",
+    "temSabores": "não",
+    "sabores": [],
+    "situacao": "ativo"
+  },
+  
+  {
+    "id": "1714481924008",
+    "nome": "Galão Azul Turquesa 2 Litros - Growth Supplements",
+    "descricao": "Ideal para manter seu corpo sempre hidratado.",
+    "preco": "29.90",
+    "precoAntigo": "35.00",
+    "imagem": "galaoazulturquesa.png",
+    "categoria": "acessorios",
+    "temSabores": "não",
+    "sabores": [],
+    "situacao": "ativo"
+  },
+
+  {
+    "id": "1714481924033",
+    "nome": "Óleo de Peixe - Ômega 3 (75 Softgel) - Growth Supplements",
+    "descricao": "Essencial para sua rotina pós-treino e imunidade",
+    "preco": "49.99",
+    "precoAntigo": "69.80",
+    "imagem": "oleodepeixe75caps.png",
+    "categoria": "Outros Suplementos",
+    "temSabores": "não",
+    "sabores": [],
+    "situacao": "ativo"
+  },
+
+  {
+    "id": "1714481924033",
+    "nome": "Galão Lilás 2 Litros - Growth Supplement",
+    "descricao": "Ideal para manter seu corpo sempre hidratado.",
+    "preco": "48.99",
+    "precoAntigo": "69.80",
+    "imagem": "galaolilas.png",
+    "categoria": "acessorios",
+    "temSabores": "não",
+    "sabores": [],
+    "situacao": "ativo"
+  },
+
+  {
+    "id": "1714481924033",
+    "nome": "Beta Alanina 250g - 100% Puro Importado - Soldiers Nutrition",
+    "descricao": "Produto ideal para quem precisa manter uma boa evolução nos treinos de musculação e corrida, pois retarda a fadiga.",
+    "preco": "74.99",
+    "precoAntigo": "80.80",
+    "imagem": "betaalaninasoldier250g.png",
+    "categoria": "Outros Suplementos",
+    "temSabores": "não",
+    "sabores": [],
+    "situacao": "ativo"
+  },
+
+  {
+    "id": "1714481924033",
+    "nome": "HOT Termogênico (60 Comprimidos) - Growth Supplements",
+    "descricao": "Desenvolvida para otimizar a termogênese, queima de gordura e controle de peso.",
+    "preco": "69.90",
+    "precoAntigo": "75.80",
+    "imagem": "cafeinahotgrowth.png",
+    "categoria": "Outros Suplementos",
+    "temSabores": "não",
+    "sabores": [],
+    "situacao": "ativo"
+  },
+
+  {
+    "id": "1714481924033",
+    "nome": "Vitamina B12 com 120 cápsulas - Growth Supplements",
+    "descricao": "Uma das vitaminas mais importantes para o bom funcionamento do organismo",
+    "preco": "44.90",
+    "precoAntigo": "60.70",
+    "imagem": "VitaminaB12growth.png",
+    "categoria": "Outros Suplementos",
+    "temSabores": "não",
+    "sabores": [],
+    "situacao": "ativo"
+  }, 
+  
+  {
+    "id": "1714481924033",
+    "nome": "Vitamina C (120 caps) - Growth Supplements",
+    "descricao": "Essencial para o equilíbrio das funções do organismo",
+    "preco": "36.90",
+    "precoAntigo": "45.70",
+    "imagem": "vitaminaCgrowth.png",
+    "categoria": "Outros Suplementos",
+    "temSabores": "não",
+    "sabores": [],
+    "situacao": "ativo"
+  },
+
+  {
+    "id": "1714481924033",
+    "nome": "Óleo de Peixe Ultra (75 softgel) - Growth Supplements",
+    "descricao": "Essencial para sua rotina pós-treino e imunidade",
+    "preco": "69.90",
+    "precoAntigo": "45.70",
+    "imagem": "oleodepeixeultragrowth.png",
+    "categoria": "Outros Suplementos",
     "temSabores": "não",
     "sabores": [],
     "situacao": "ativo"

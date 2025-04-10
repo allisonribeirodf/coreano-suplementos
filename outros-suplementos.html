@@ -24,8 +24,30 @@
     <div class="produtos-grid" id="produtos-container"></div>
   </main>
 
+  <!-- Modal de fundo (backdrop) -->
   <div id="backdrop-modal" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.6); z-index: 999; display: none;"></div>
 
+  <!-- Modal do Produto -->
+  <div id="modal-produto" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 2rem; border-radius: 10px; display: none; z-index: 1000;">
+    <img id="modal-img-produto" src="" alt="Produto" style="max-width: 120px; display: block; margin: auto;">
+    <p id="modal-nome-produto" style="font-weight: bold;"></p>
+    <p id="modal-preco-produto"></p>
+
+    <label for="modal-sabor-produto">Sabor</label>
+    <select id="modal-sabor-produto" disabled style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;"></select>
+
+    <div style="margin: 0.5rem 0;">
+      <label for="quantidade-produto"><strong>Quantidade:</strong></label>
+      <input type="number" id="quantidade-produto" min="1" value="1" style="width: 100%; padding: 0.5rem;" />
+    </div>
+
+    <div style="margin-top: 1rem;">
+      <button onclick="adicionarAoCarrinho()" style="padding: 0.5rem 1rem; background: #f7941d; color: white; border: none; border-radius: 5px;">Adicionar ao Carrinho</button>
+      <button onclick="fecharModalProduto()" style="margin-left: 0.5rem; padding: 0.5rem 1rem;">Fechar</button>
+    </div>
+  </div>
+
+  <!-- Modal do carrinho -->
   <div id="modal-carrinho" class="modal-carrinho" style="display:none;">
     <h3>Seu Carrinho</h3>
     <div id="itens-carrinho"></div>
@@ -33,6 +55,16 @@
       <h4>Resumo do Pedido</h4>
       <ul id="lista-resumo"></ul>
       <p><strong>Total: R$ <span id="total-pedido">0,00</span></strong></p>
+
+      <label for="forma-pagamento"><strong>Forma de Pagamento:</strong></label>
+      <select id="forma-pagamento" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;">
+        <option value="Não informado">Selecionar</option>
+        <option value="PIX">PIX</option>
+        <option value="Cartão de Crédito">Cartão de Crédito</option>
+        <option value="Cartão de Débito">Cartão de Débito</option>
+        <option value="Dinheiro">Dinheiro</option>
+      </select>
+
       <button class="btn-finalizar" onclick="finalizarCompraCarrinho()">Finalizar Compra no WhatsApp</button>
       <button onclick="limparCarrinho()" style="margin-top: 0.5rem; background-color: #f44336; color: white; width: 100%; border: none; padding: 0.75rem; border-radius: 8px; font-weight: bold;">🪟 Limpar Carrinho</button>
     </div>
@@ -42,13 +74,12 @@
     <p>&copy; 2025 Coreano Suplementos. Todos os direitos reservados.</p>
   </footer>
 
-  <a href="https://wa.me/5561985402592" target="_blank" class="whatsapp-float">
+  <a id="whatsapp-flutuante" href="https://wa.me/5561985402592" class="whatsapp-float">
     <img src="images/logodowpp.png" alt="Fale conosco via WhatsApp" />
   </a>
-  
+
   <!-- Scripts -->
   <script src="js/carrinho.js"></script>
   <script src="js/script.js"></script>
-
 </body>
 </html>

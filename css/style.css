@@ -629,3 +629,14 @@ td img {
   font-weight: bold;
   font-size: 1.25rem;
 }
+
+.aviso-produto {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
