@@ -119,7 +119,12 @@ function finalizarCompraCarrinho() {
   }
 
   mensagem += `TOTAL DO PEDIDO: R$ ${total.toFixed(2)}\n\n`;
-  mensagem += `Gostaria de finalizar este pedido.`;
+  const select = document.getElementById("forma-pagamento");
+const formaPagamento = select ? select.value : "Não informado";
+
+mensagem += `Forma de Pagamento: ${formaPagamento}\n\n`;
+mensagem += `Gostaria de finalizar este pedido.`;
+
 
   const url = `https://wa.me/5561985402592?text=${encodeURIComponent(mensagem)}`;
   window.open(url, '_blank');
@@ -144,18 +149,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartIcon = document.getElementById("cart-icon");
   const modalCarrinho = document.getElementById("modal-carrinho");
   const backdropModal = document.getElementById("backdrop-modal");
+  const whatsappFloat = document.getElementById("whatsapp-flutuante");
+
 
   if (cartIcon && modalCarrinho) {
     cartIcon.addEventListener("click", () => {
-      if (modalCarrinho.style.display === "block") {
+      const isOpen = modalCarrinho.style.display === "block";
+    
+      if (isOpen) {
         modalCarrinho.style.display = "none";
         backdropModal.style.display = "none";
+        if (whatsappFloat) whatsappFloat.style.display = "inline-block"; // mostra
       } else {
         carregarCarrinho();
         modalCarrinho.style.display = "block";
         backdropModal.style.display = "block";
+        if (whatsappFloat) whatsappFloat.style.display = "none"; // esconde
       }
     });
+    
   }
 
   window.addEventListener("click", (event) => {

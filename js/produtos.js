@@ -1,64 +1,61 @@
 // Processando o envio do formulário para cadastrar o produto
-document.getElementById('form-produto').addEventListener('submit', function(event) {
-  event.preventDefault();  // Impede o envio do formulário
 
-  // Coleta os dados do formulário
+// Adicionando campo de quantidade no cadastro (opcional, pode ser ignorado na criação do produto)
+document.getElementById('form-produto').addEventListener('submit', function(event) {
+  event.preventDefault();
+
   const nomeProduto = document.getElementById('nome-produto').value;
   const precoProduto = document.getElementById('preco-produto').value;
   const categoriaProduto = document.getElementById('categoria-produto').value;
   const temSabores = document.getElementById('tem-sabores').value;
 
-  // Verifica se o campo 'sabores' deve ser mostrado
   const sabores = temSabores === 'sim'
-    ? document.getElementById('sabores').value.split(',').map(s => s.trim()).filter(s => s !== '') // Limpa os espaços e separa os sabores
+    ? document.getElementById('sabores').value.split(',').map(s => s.trim()).filter(s => s !== '')
     : [];
 
-  // Obtém a imagem selecionada pelo usuário
   const imagemProduto = document.getElementById('imagem-produto').files[0];
 
-  // Verifica se uma imagem foi fornecida
   if (imagemProduto) {
     const reader = new FileReader();
     reader.onload = function(e) {
       const produto = {
-        id: Date.now(),  // ID único com base no timestamp atual
+        id: Date.now(),
         nome: nomeProduto,
         preco: precoProduto,
         categoria: categoriaProduto,
         temSabores: temSabores,
-        sabores: temSabores === 'sim' ? sabores : [],  // Se o produto tem sabores, adiciona os sabores, caso contrário, mantém um array vazio
-        imagem: e.target.result // Converte a imagem em uma URL base64
+        sabores: temSabores === 'sim' ? sabores : [],
+        imagem: e.target.result,
+        situacao: "ativo"
       };
 
-      // Adiciona um console.log para verificar os dados do produto
       console.log("Produto salvo:", produto);
 
-      // Recupera os produtos do localStorage ou cria uma lista nova
       let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
-      produtos.push(produto);  // Adiciona o produto ao array
-      localStorage.setItem('produtos', JSON.stringify(produtos));  // Salva os produtos no localStorage
+      produtos.push(produto);
+      localStorage.setItem('produtos', JSON.stringify(produtos));
 
       alert('Produto salvo com sucesso!');
     };
-    reader.readAsDataURL(imagemProduto);  // Converte a imagem em uma URL de base64
+    reader.readAsDataURL(imagemProduto);
   } else {
     alert('Por favor, selecione uma imagem.');
   }
 });
 
-
 // Exibindo os produtos cadastrados na página de produtos
 window.onload = function() {
-  const produtos = JSON.parse(localStorage.getItem('produtos')) || [];
-  const listaProdutos = document.getElementById('lista-produtos'); // O container onde os produtos serão exibidos
+  const todosProdutos = JSON.parse(localStorage.getItem('produtos')) || [];
+  const produtos = todosProdutos.filter(p => p.situacao === "ativo");
 
-  // Cria um card para cada produto e exibe os dados
+  const listaProdutos = document.getElementById('lista-produtos');
+
   produtos.forEach(produto => {
     const produtoCard = document.createElement('div');
-    produtoCard.classList.add('produto-card'); // Adiciona uma classe para estilizar os cards, se necessário
+    produtoCard.classList.add('produto-card');
 
     const imgElement = document.createElement('img');
-    imgElement.src = produto.imagem;  // A URL da imagem que foi salva em base64
+    imgElement.src = produto.imagem;
     imgElement.alt = produto.nome;
 
     const nomeElement = document.createElement('h3');
@@ -67,24 +64,73 @@ window.onload = function() {
     const precoElement = document.createElement('p');
     precoElement.textContent = `R$ ${produto.preco}`;
 
-    // Exibe os sabores, se houver
     const saboresElement = document.createElement('p');
     if (produto.temSabores === 'sim' && produto.sabores.length > 0) {
-      console.log(produto.sabores); // Verifica os sabores que estão sendo recuperados
-
       saboresElement.textContent = `Sabores: ${produto.sabores.join(', ')}`;
     }
 
-    // Adiciona o card do produto à lista
+    const btnComprar = document.createElement('button');
+    btnComprar.textContent = 'Comprar';
+    btnComprar.onclick = () => abrirModalProduto(produto);
+
     produtoCard.appendChild(imgElement);
     produtoCard.appendChild(nomeElement);
     produtoCard.appendChild(precoElement);
-
-    // Se o produto tiver sabores, exibe os sabores
     if (produto.temSabores === 'sim') {
       produtoCard.appendChild(saboresElement);
     }
+    produtoCard.appendChild(btnComprar);
 
     listaProdutos.appendChild(produtoCard);
   });
 };
+
+// Função que abre o modal preenchido com os dados do produto
+function abrirModalProduto(produto) {
+  document.getElementById("modal-nome-produto").textContent = produto.nome;
+  document.getElementById("modal-preco-produto").textContent = `R$ ${produto.preco}`;
+  document.getElementById("modal-sabor-produto").innerHTML = "";
+
+  if (produto.temSabores === "sim") {
+    document.getElementById("modal-sabor-produto").disabled = false;
+    const select = document.getElementById("modal-sabor-produto");
+    const optionDefault = document.createElement("option");
+    optionDefault.value = "";
+    optionDefault.textContent = "Selecione";
+    select.appendChild(optionDefault);
+    produto.sabores.forEach(sabor => {
+      const option = document.createElement("option");
+      option.value = sabor;
+      option.textContent = sabor;
+      select.appendChild(option);
+    });
+  } else {
+    document.getElementById("modal-sabor-produto").disabled = true;
+  }
+
+  document.getElementById("quantidade-produto").value = 1;
+
+  document.getElementById("modal-produto").style.display = "block";
+  document.getElementById("backdrop-modal").style.display = "block";
+}
+
+function fecharModalProduto() {
+  document.getElementById("modal-produto").style.display = "none";
+  document.getElementById("backdrop-modal").style.display = "none";
+}
+
+function adicionarAoCarrinho() {
+  const nome = document.getElementById("modal-nome-produto").textContent;
+  const preco = document.getElementById("modal-preco-produto").textContent.replace("R$", "").trim();
+  const sabor = document.getElementById("modal-sabor-produto").value;
+  const quantidade = parseInt(document.getElementById("quantidade-produto").value) || 1;
+
+  const nomeFinal = sabor ? `${nome} - ${sabor}` : nome;
+
+  for (let i = 0; i < quantidade; i++) {
+    adicionarCarrinhoDinamico(Date.now() + i, nomeFinal, preco);
+  }
+
+  fecharModalProduto();
+  alert(`${quantidade}x ${nomeFinal} adicionado(s) ao carrinho!`);
+}

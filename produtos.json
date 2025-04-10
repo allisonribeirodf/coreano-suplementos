@@ -1,241 +1,273 @@
 [
-    {
-        "id": "1714481920002",
-        "nome": "Isolate Protein Fuse 1,8kg - Dark Lab",
-        "descricao": "Suplemento alimentar rico em proteína.",
-        "preco": "160.90",
-        "precoAntigo": "179.90",
-        "imagem": "wheydarklab1.8kg.png",
-        "categoria": "Whey Protein",
-        "temSabores": "sim",
-        "sabores": ["Chocolate"]
-      },
-
-      {
-        "id": "1714481920003",
-        "nome": "Whey Protein Concentrado 1KG - Dark Lab",
-        "descricao": "Suplemento alimentar rico em proteína.",
-        "preco": "137.90",
-        "precoAntigo": "149.90",
-        "imagem": "wheyconcentrate1k.png",
-        "categoria": "Whey Protein",
-        "temSabores": "sim",
-        "sabores": ["Baunilha"]
-      },
-
-      {
-        "id": "1714481920004",
-        "nome": "Isolate Protein Fuse 900g - Dark Lab",
-        "descricao": "Suplemento alimentar rico em proteína.",
-        "preco": "110.90",
-        "precoAntigo": "120.90",
-        "imagem": "wheydarklabfuse900g.png",
-        "categoria": "Whey Protein",
-        "temSabores": "sim",
-        "sabores": ["Morango"]
-      },
-
-    {
-        "id": "1714481920005",
-        "nome": "Whey One Refil 900g - Dark Lab",
-        "descricao": "Suplemento alimentar rico em proteína.",
-        "preco": "95.90",
-        "precoAntigo": "115.90",
-        "imagem": "wheydarklabone900g.png",
-        "categoria": "Whey Protein",
-        "temSabores": "sim",
-        "sabores": ["Chocolate"]
-      },
-
-      {
-        "id": "1714481920005",
-        "nome": "Whey Protein Concentrado (1KG) - Growth Supplements",
-        "descricao": "Whey protein Growth fornece proteínas para quem deseja hipertrofia e definição muscular.",
-        "preco": "139.90",
-        "precoAntigo": "149.90",
-        "imagem": "wheygrowth1kg.png",
-        "categoria": "Whey Protein",
-        "temSabores": "sim",
-        "sabores": ["Natural","Cookies and Cream","Beijinho","Banana"]
-      },
-
-      {
-        "id": "17144819200059",
-        "nome": "Creamass Hipercalorico com Creatina 3Kg Morango/Chocolate",
-        "descricao": "Auxilia na construção e aumento de massa muscular; Auxilia no aumento da resistência física; Auxilia no aumento da energia.",
-        "preco": "119.90",
-        "precoAntigo": "135.90",
-        "imagem": "hipercaloricointegral3kg.png",
-        "categoria": "Hipercalorico",
-        "temSabores": "sim",
-        "sabores": ["Chocolate","Morango"]
-      },
-
-      {
-        "id": "1714481920008",
-        "nome": "Hiper Mass Flavour 2,5Kg Morango/Chocolate, Atlhetica Nutrition",
-        "descricao": "Suplemento alimentar rico em proteína.",
-        "preco": "95.90",
-        "precoAntigo": "115.90",
-        "imagem": "hipercaloricoathetica2.5kg.png",
-        "categoria": "Hipercalorico",
-        "temSabores": "sim",
-        "sabores": ["Chocolate", "Morango"]
-      },
-
-      {
-        "id": "1714481920008",
-        "nome": "Hiper Mass (1kg) Sabor Chocolate - Growth Supplements",
-        "descricao": "Suplemento alimentar rico em proteína.",
-        "preco": "85.90",
-        "precoAntigo": "100.00",
-        "imagem": "hipercaloricogrowth1kg.png",
-        "categoria": "Hipercalorico",
-        "temSabores": "sim",
-        "sabores": ["Chocolate"]
-      },
-
-      {
-        "id": "1714481920008",
-        "nome": "Creatina Pura 300g - Dark Lab",
-        "descricao": "A creatina mais pura do Brasil, aprovada por Laudo pela ABENUTRI.",
-        "preco": "79.90",
-        "precoAntigo": "100.00",
-        "imagem": "creatinadarklab300g.png",
-        "categoria": "creatina",
-        "temSabores": "sim",
-        "sabores": ["NEUTRO"]
-      },
-      
-      {
-        "id": "1714481920008",
-        "nome": "Max Titanium Creatina - Suplemento alimentar de creatina em pó, 300g",
-        "descricao": "Creatina Monohidratada.",
-        "preco": "89.90",
-        "precoAntigo": "100.00",
-        "imagem": "creatinamax300g.png",
-        "categoria": "creatina",
-        "temSabores": "sim",
-        "sabores": ["NEUTRO"]
-      },
-
-      {
-        "id": "1714481920008",
-        "nome": "FTW Creatina Monohidratada 100% Pura, 300g",
-        "descricao": "Explosão de Energia, Força e Resistência - Absorção Rápida para Ganho de Massa e Performance.",
-        "preco": "80.90",
-        "precoAntigo": "94.99",
-        "imagem": "creatinaftw300g.png",
-        "categoria": "creatina",
-        "temSabores": "sim",
-        "sabores": ["NEUTRO"]
-      },
-
-      {
-        "id": "1714481924008",
-        "nome": "Will Power Pré Workout Limão 330g",
-        "descricao": "Disponibilidade: Imediata.",
-        "preco": "105.90",
-        "precoAntigo": "139.90",
-        "imagem": "pretreinowillpowerlimao.png",
-        "categoria": "pretreino",
-        "temSabores": "sim",
-        "sabores": ["Limão"]
-      },
-
-      {
-        "id": "1714481924008",
-        "nome": "Will Power Pré Workout Frutas Amarelas 330g",
-        "descricao": "Disponibilidade: Imediata.",
-        "preco": "110.90",
-        "precoAntigo": "139.90",
-        "imagem": "pretreinowillpowerfrutasamarelas.png",
-        "categoria": "pretreino",
-        "temSabores": "sim",
-        "sabores": ["Frutas Amarelas"]
-      },
-
-      {
-        "id": "1714481924008",
-        "nome": "Pré-Workout Venom Underground Pré-Treino 300G Dark Lab (300g, Limão)",
-        "descricao": "Venom é um pré-treino feito para maximizar seu treino e alcançar seus objetivos.",
-        "preco": "124.90",
-        "precoAntigo": "159.90",
-        "imagem": "pretreinodarklablimao.png",
-        "categoria": "pretreino",
-        "temSabores": "sim",
-        "sabores": ["Limão"]
-      },
-
-      {
-        "id": "1714481924008",
-        "nome": "3VS Nutrition Pré Treino Prohibido 360g Sabor Ponche de Frutas",
-        "descricao": "PROHIBIDO PRE WORKOUT.",
-        "preco": "119.90",
-        "precoAntigo": "129.90",
-        "imagem": "pretreinoprohibidoPonchedeFrutas.png",
-        "categoria": "pretreino",
-        "temSabores": "sim",
-        "sabores": ["Ponche de Frutas"]
-      },
-
-      {
-        "id": "1714481924008",
-        "nome": "Fitoway Diabo Verde Insano Pre - Workout - Frutas Amarelas 300 G",
-        "descricao": "Pré-Workout com 200mg de cafeína.",
-        "preco": "109.90",
-        "precoAntigo": "120.90",
-        "imagem": "pretreinoDiaboVerde.png",
-        "categoria": "pretreino",
-        "temSabores": "sim",
-        "sabores": ["Frutas Amarelas", "Maça Verde"]
-      },
-
-      {
-        "id": "1714481924008",
-        "nome": "Max Titanium Horus Pote 300G Sbor Limão Yuzu",
-        "descricao": "Pré-Workout com 200mg de cafeína.",
-        "preco": "109.90",
-        "precoAntigo": "125.90",
-        "imagem": "pretreinoMaxTitaniumHorus.png",
-        "categoria": "pretreino",
-        "temSabores": "sim",
-        "sabores": ["Limão Yuzu", "Blue Ice"]
-      },
-
-      {
-        "id": "1714481924008",
-        "nome": "Max Titanium Pré Treino Égide Sabor Abacaxi E Manga Edição Ramon Dino - 300g",
-        "descricao": "Pré-Workout com 200mg de cafeína.",
-        "preco": "139.90",
-        "precoAntigo": "159.90",
-        "imagem": "pretreinoMaxEgide.png",
-        "categoria": "pretreino",
-        "temSabores": "sim",
-        "sabores": ["Abacaxi E Manga"]
-      },
-
-      {
-        "id": "1714481924008",
-        "nome": "B.O.P.E Pré Treino - 300G Limão - Black Skull, Black Skull",
-        "descricao": "Pré-Workout com 200mg de cafeína.",
-        "preco": "89.90",
-        "precoAntigo": "114.90",
-        "imagem": "pretreinoB.O.P.E.png",
-        "categoria": "pretreino",
-        "temSabores": "sim",
-        "sabores": ["Limão"]
-      },
-
-      {
-        "id": "1714481924008",
-        "nome": "Galão Transparente e Preto 2 Litros - Growth Supplements",
-        "descricao": "Ideal para manter seu corpo sempre hidratado.",
-        "preco": "24.99",
-        "precoAntigo": "30.00",
-        "imagem": "galaotransparentepreto.png",
-        "categoria": "acessorios",
-        "temSabores": "não",
-        "sabores": []
-      }
+  {
+    "id": "1714481920002",
+    "nome": "Isolate Protein Fuse 1,8kg - Dark Lab",
+    "descricao": "Suplemento alimentar rico em proteína.",
+    "preco": "160.90",
+    "precoAntigo": "179.90",
+    "imagem": "wheydarklab1.8kg.png",
+    "categoria": "Whey Protein",
+    "temSabores": "sim",
+    "sabores": [
+      "Chocolate"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481920004",
+    "nome": "Isolate Protein Fuse 900g - Dark Lab",
+    "descricao": "Suplemento alimentar rico em proteína.",
+    "preco": "110.90",
+    "precoAntigo": "120.90",
+    "imagem": "wheydarklabfuse900g.png",
+    "categoria": "Whey Protein",
+    "temSabores": "sim",
+    "sabores": [
+      "Morango"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481920005",
+    "nome": "Whey One Refil 900g - Dark Lab",
+    "descricao": "Suplemento alimentar rico em proteína.",
+    "preco": "95.90",
+    "precoAntigo": "115.90",
+    "imagem": "wheydarklabone900g.png",
+    "categoria": "Whey Protein",
+    "temSabores": "sim",
+    "sabores": [
+      "Chocolate"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481920005",
+    "nome": "Whey Protein Concentrado (1KG) - Growth Supplements",
+    "descricao": "Whey protein Growth fornece proteínas para quem deseja hipertrofia e definição muscular.",
+    "preco": "139.90",
+    "precoAntigo": "149.90",
+    "imagem": "wheygrowth1kg.png",
+    "categoria": "Whey Protein",
+    "temSabores": "sim",
+    "sabores": [
+      "Natural",
+      "Cookies and Cream",
+      "Beijinho",
+      "Banana"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "17144819200059",
+    "nome": "Creamass Hipercalorico com Creatina 3Kg Morango/Chocolate",
+    "descricao": "Auxilia na construção e aumento de massa muscular; Auxilia no aumento da resistência física; Auxilia no aumento da energia.",
+    "preco": "119.90",
+    "precoAntigo": "135.90",
+    "imagem": "hipercaloricointegral3kg.png",
+    "categoria": "Hipercalorico",
+    "temSabores": "sim",
+    "sabores": [
+      "Chocolate",
+      "Morango"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481920008",
+    "nome": "Hiper Mass Flavour 2,5Kg Morango/Chocolate, Atlhetica Nutrition",
+    "descricao": "Suplemento alimentar rico em proteína.",
+    "preco": "95.90",
+    "precoAntigo": "115.90",
+    "imagem": "hipercaloricoathetica2.5kg.png",
+    "categoria": "Hipercalorico",
+    "temSabores": "sim",
+    "sabores": [
+      "Chocolate",
+      "Morango"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481920008",
+    "nome": "Hiper Mass (1kg) Sabor Chocolate - Growth Supplements",
+    "descricao": "Suplemento alimentar rico em proteína.",
+    "preco": "85.90",
+    "precoAntigo": "100.00",
+    "imagem": "hipercaloricogrowth1kg.png",
+    "categoria": "Hipercalorico",
+    "temSabores": "sim",
+    "sabores": [
+      "Chocolate"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481920008",
+    "nome": "Creatina Pura 300g - Dark Lab",
+    "descricao": "A creatina mais pura do Brasil, aprovada por Laudo pela ABENUTRI.",
+    "preco": "79.90",
+    "precoAntigo": "100.00",
+    "imagem": "creatinadarklab300g.png",
+    "categoria": "creatina",
+    "temSabores": "sim",
+    "sabores": [
+      "NEUTRO"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481920008",
+    "nome": "Max Titanium Creatina - Suplemento alimentar de creatina em pó, 300g",
+    "descricao": "Creatina Monohidratada.",
+    "preco": "89.90",
+    "precoAntigo": "100.00",
+    "imagem": "creatinamax300g.png",
+    "categoria": "creatina",
+    "temSabores": "sim",
+    "sabores": [
+      "NEUTRO"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481920008",
+    "nome": "FTW Creatina Monohidratada 100% Pura, 300g",
+    "descricao": "Explosão de Energia, Força e Resistência - Absorção Rápida para Ganho de Massa e Performance.",
+    "preco": "80.90",
+    "precoAntigo": "94.99",
+    "imagem": "creatinaftw300g.png",
+    "categoria": "creatina",
+    "temSabores": "sim",
+    "sabores": [
+      "NEUTRO"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481924008",
+    "nome": "Will Power Pré Workout Limão 330g",
+    "descricao": "Disponibilidade: Imediata.",
+    "preco": "105.90",
+    "precoAntigo": "139.90",
+    "imagem": "pretreinowillpowerlimao.png",
+    "categoria": "pretreino",
+    "temSabores": "sim",
+    "sabores": [
+      "Limão"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481924008",
+    "nome": "Will Power Pré Workout Frutas Amarelas 330g",
+    "descricao": "Disponibilidade: Imediata.",
+    "preco": "110.90",
+    "precoAntigo": "139.90",
+    "imagem": "pretreinowillpowerfrutasamarelas.png",
+    "categoria": "pretreino",
+    "temSabores": "sim",
+    "sabores": [
+      "Frutas Amarelas"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481924008",
+    "nome": "Pré-Workout Venom Underground Pré-Treino 300G Dark Lab (300g, Limão)",
+    "descricao": "Venom é um pré-treino feito para maximizar seu treino e alcançar seus objetivos.",
+    "preco": "124.90",
+    "precoAntigo": "159.90",
+    "imagem": "pretreinodarklablimao.png",
+    "categoria": "pretreino",
+    "temSabores": "sim",
+    "sabores": [
+      "Limão"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481924008",
+    "nome": "3VS Nutrition Pré Treino Prohibido 360g Sabor Ponche de Frutas",
+    "descricao": "PROHIBIDO PRE WORKOUT.",
+    "preco": "119.90",
+    "precoAntigo": "129.90",
+    "imagem": "pretreinoprohibidoPonchedeFrutas.png",
+    "categoria": "pretreino",
+    "temSabores": "sim",
+    "sabores": [
+      "Ponche de Frutas"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481924008",
+    "nome": "Fitoway Diabo Verde Insano Pre - Workout - Frutas Amarelas 300 G",
+    "descricao": "Pré-Workout com 200mg de cafeína.",
+    "preco": "109.90",
+    "precoAntigo": "120.90",
+    "imagem": "pretreinoDiaboVerde.png",
+    "categoria": "pretreino",
+    "temSabores": "sim",
+    "sabores": [
+      "Frutas Amarelas",
+      "Maça Verde"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481924008",
+    "nome": "Max Titanium Horus Pote 300G Sbor Limão Yuzu",
+    "descricao": "Pré-Workout com 200mg de cafeína.",
+    "preco": "109.90",
+    "precoAntigo": "125.90",
+    "imagem": "pretreinoMaxTitaniumHorus.png",
+    "categoria": "pretreino",
+    "temSabores": "sim",
+    "sabores": [
+      "Limão Yuzu",
+      "Blue Ice"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481924008",
+    "nome": "Max Titanium Pré Treino Égide Sabor Abacaxi E Manga Edição Ramon Dino - 300g",
+    "descricao": "Pré-Workout com 200mg de cafeína.",
+    "preco": "139.90",
+    "precoAntigo": "159.90",
+    "imagem": "pretreinoMaxEgide.png",
+    "categoria": "pretreino",
+    "temSabores": "sim",
+    "sabores": [
+      "Abacaxi E Manga"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481924008",
+    "nome": "B.O.P.E Pré Treino - 300G Limão - Black Skull, Black Skull",
+    "descricao": "Pré-Workout com 200mg de cafeína.",
+    "preco": "89.90",
+    "precoAntigo": "114.90",
+    "imagem": "pretreinoB.O.P.E.png",
+    "categoria": "pretreino",
+    "temSabores": "sim",
+    "sabores": [
+      "Limão"
+    ],
+    "situacao": "ativo"
+  },
+  {
+    "id": "1714481924008",
+    "nome": "Galão Transparente e Preto 2 Litros - Growth Supplements",
+    "descricao": "Ideal para manter seu corpo sempre hidratado.",
+    "preco": "24.99",
+    "precoAntigo": "30.00",
+    "imagem": "galaotransparentepreto.png",
+    "categoria": "acessorios",
+    "temSabores": "não",
+    "sabores": [],
+    "situacao": "ativo"
+  }
 ]
