@@ -37,7 +37,7 @@
   },
   {
     "id": "1714481920005",
-    "nome": "Whey Protein Concentrado (1KG) VÁRIOS SABORES - Growth Supplements",
+    "nome": "Whey Protein Concentrado (1KG) - Verificar sabores disponiveis! - Growth Supplements",
     "descricao": "Whey protein Growth fornece proteínas para quem deseja hipertrofia e definição muscular.",
     "preco": "139.90",
     "precoAntigo": "149.90",
@@ -45,10 +45,7 @@
     "categoria": "Whey Protein",
     "temSabores": "sim",
     "sabores": [
-      "Natural",
-      "Cookies and Cream",
-      "Beijinho",
-      "Banana"
+      "Natural"
     ],
     "situacao": "ativo"
   },
@@ -100,7 +97,7 @@
     "id": "1714481920008",
     "nome": "Creatina Pura 300g - Dark Lab",
     "descricao": "A creatina mais pura do Brasil, aprovada por Laudo pela ABENUTRI.",
-    "preco": "84.99",
+    "preco": "79.99",
     "precoAntigo": "100.00",
     "imagem": "creatinadarklab300g.png",
     "categoria": "creatina",
@@ -160,6 +157,23 @@
     ],
     "situacao": "ativo"
   },
+
+  {
+    "id": "1714481924008",
+    "nome": "Ftw Diabo Verde Insano Pre - Workout - Frutas Amarelas 300 G",
+    "descricao": "Pré-Workout com 200mg de cafeína.",
+    "preco": "115.00",
+    "precoAntigo": "124.99",
+    "imagem": "pretreinoDiaboVerde.png",
+    "categoria": "pretreino",
+    "temSabores": "sim",
+    "sabores": [
+      "Frutas Amarelas",
+      "Maça Verde"
+    ],
+    "situacao": "ativo"
+  },
+
   {
     "id": "1714481924008",
     "nome": "Pré-Workout Venom Underground Pré-Treino 300G Dark Lab (300g, Limão)",
@@ -188,21 +202,7 @@
     ],
     "situacao": "ativo"
   },
-  {
-    "id": "1714481924008",
-    "nome": "Ftw Diabo Verde Insano Pre - Workout - Frutas Amarelas 300 G",
-    "descricao": "Pré-Workout com 200mg de cafeína.",
-    "preco": "115.00",
-    "precoAntigo": "124.99",
-    "imagem": "pretreinoDiaboVerde.png",
-    "categoria": "pretreino",
-    "temSabores": "sim",
-    "sabores": [
-      "Frutas Amarelas",
-      "Maça Verde"
-    ],
-    "situacao": "ativo"
-  },
+
   {
     "id": "1714481924008",
     "nome": "Max Titanium Horus Pote 300G Sbor Limão Yuzu",
@@ -246,20 +246,6 @@
     ],
     "situacao": "ativo"
   },
-
-  {
-    "id": "1714481924008",
-    "nome": "Galão Transparente e Preto 2 Litros - Growth Supplements",
-    "descricao": "Ideal para manter seu corpo sempre hidratado.",
-    "preco": "29.90",
-    "precoAntigo": "35.00",
-    "imagem": "galaotransparentepreto.png",
-    "categoria": "acessorios",
-    "temSabores": "não",
-    "sabores": [],
-    "situacao": "ativo"
-  },
-
   {
     "id": "1714481924008",
     "nome": "Galão Transparente e Rosa 2 Litros - Growth Supplements",
@@ -272,7 +258,6 @@
     "sabores": [],
     "situacao": "ativo"
   },
-
   {
     "id": "1714481924008",
     "nome": "Galão Transparente vermelho 2 Litros - Growth Supplements",
@@ -285,7 +270,6 @@
     "sabores": [],
     "situacao": "ativo"
   },
-
   {
     "id": "1714481924008",
     "nome": "Galão Verde Fluorescente 2 Litros - Growth Supplements",
@@ -293,19 +277,6 @@
     "preco": "29.90",
     "precoAntigo": "35.00",
     "imagem": "galaoverdeflorecente.png",
-    "categoria": "acessorios",
-    "temSabores": "não",
-    "sabores": [],
-    "situacao": "ativo"
-  },
-
-  {
-    "id": "1714481924008",
-    "nome": "Galão Rosa 2 Litros - Growth Supplements",
-    "descricao": "Ideal para manter seu corpo sempre hidratado.",
-    "preco": "29.90",
-    "precoAntigo": "35.00",
-    "imagem": "galaorosa.png",
     "categoria": "acessorios",
     "temSabores": "não",
     "sabores": [],
@@ -324,19 +295,6 @@
     "sabores": [],
     "situacao": "ativo"
   },
-  
-  {
-    "id": "1714481924008",
-    "nome": "Galão Azul Turquesa 2 Litros - Growth Supplements",
-    "descricao": "Ideal para manter seu corpo sempre hidratado.",
-    "preco": "29.90",
-    "precoAntigo": "35.00",
-    "imagem": "galaoazulturquesa.png",
-    "categoria": "acessorios",
-    "temSabores": "não",
-    "sabores": [],
-    "situacao": "ativo"
-  },
 
   {
     "id": "1714481924033",
@@ -350,20 +308,18 @@
     "sabores": [],
     "situacao": "ativo"
   },
-
   {
     "id": "1714481924033",
     "nome": "Galão Lilás 2 Litros - Growth Supplement",
     "descricao": "Ideal para manter seu corpo sempre hidratado.",
-    "preco": "48.99",
-    "precoAntigo": "69.80",
+    "preco": "29.90",
+    "precoAntigo": "35.00",
     "imagem": "galaolilas.png",
     "categoria": "acessorios",
     "temSabores": "não",
     "sabores": [],
     "situacao": "ativo"
   },
-
   {
     "id": "1714481924033",
     "nome": "Beta Alanina 250g - 100% Puro Importado - Soldiers Nutrition",
@@ -376,20 +332,6 @@
     "sabores": [],
     "situacao": "ativo"
   },
-
-  {
-    "id": "1714481924033",
-    "nome": "HOT Termogênico (60 Comprimidos) - Growth Supplements",
-    "descricao": "Desenvolvida para otimizar a termogênese, queima de gordura e controle de peso.",
-    "preco": "69.90",
-    "precoAntigo": "75.80",
-    "imagem": "cafeinahotgrowth.png",
-    "categoria": "Outros Suplementos",
-    "temSabores": "não",
-    "sabores": [],
-    "situacao": "ativo"
-  },
-
   {
     "id": "1714481924033",
     "nome": "Vitamina B12 com 120 cápsulas - Growth Supplements",
@@ -401,21 +343,7 @@
     "temSabores": "não",
     "sabores": [],
     "situacao": "ativo"
-  }, 
-  
-  {
-    "id": "1714481924033",
-    "nome": "Vitamina C (120 caps) - Growth Supplements",
-    "descricao": "Essencial para o equilíbrio das funções do organismo",
-    "preco": "36.90",
-    "precoAntigo": "45.70",
-    "imagem": "vitaminaCgrowth.png",
-    "categoria": "Outros Suplementos",
-    "temSabores": "não",
-    "sabores": [],
-    "situacao": "ativo"
   },
-
   {
     "id": "1714481924033",
     "nome": "Óleo de Peixe Ultra (75 softgel) - Growth Supplements",

@@ -26,17 +26,28 @@
 
   <div id="backdrop-modal" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.6); z-index: 999; display: none;"></div>
 
-  <div id="modal-carrinho" class="modal-carrinho" style="display:none;">
-    <h3>Seu Carrinho</h3>
-    <div id="itens-carrinho"></div>
-    <div class="resumo-pedido">
-      <h4>Resumo do Pedido</h4>
-      <ul id="lista-resumo"></ul>
-      <p><strong>Total: R$ <span id="total-pedido">0,00</span></strong></p>
-      <button class="btn-finalizar" onclick="finalizarCompraCarrinho()">Finalizar Compra no WhatsApp</button>
-      <button onclick="limparCarrinho()" style="margin-top: 0.5rem; background-color: #f44336; color: white; width: 100%; border: none; padding: 0.75rem; border-radius: 8px; font-weight: bold;">🪟 Limpar Carrinho</button>
+    <!-- Modal do carrinho -->
+    <div id="modal-carrinho" class="modal-carrinho" style="display:none;">
+      <h3>Seu Carrinho</h3>
+      <div id="itens-carrinho"></div>
+      <div class="resumo-pedido">
+        <h4>Resumo do Pedido</h4>
+        <ul id="lista-resumo"></ul>
+        <p><strong>Total: R$ <span id="total-pedido">0,00</span></strong></p>
+  
+        <label for="forma-pagamento"><strong>Forma de Pagamento:</strong></label>
+        <select id="forma-pagamento" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem;">
+          <option value="Não informado">Selecionar</option>
+          <option value="PIX">PIX</option>
+          <option value="Cartão de Crédito">Cartão de Crédito/comTaxa</option>
+          <option value="Cartão de Débito">Cartão de Débito</option>
+          <option value="Dinheiro">Dinheiro</option>
+        </select>
+  
+        <button class="btn-finalizar" onclick="finalizarCompraCarrinho()">Finalizar Compra no WhatsApp</button>
+        <button onclick="limparCarrinho()" style="margin-top: 0.5rem; background-color: #f44336; color: white; width: 100%; border: none; padding: 0.75rem; border-radius: 8px; font-weight: bold;">🪟 Limpar Carrinho</button>
+      </div>
     </div>
-  </div>
 
   <footer>
     <p>&copy; 2025 Coreano Suplementos. Todos os direitos reservados.</p>
