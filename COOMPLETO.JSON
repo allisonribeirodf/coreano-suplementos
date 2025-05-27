@@ -13,7 +13,7 @@
   },
   {
     "id": "1714481920004",
-    "nome": "Isolate Protein Fuse 900g Sabor Cookies - Dark Lab",
+    "nome": "Isolate Protein Fuse 900g Sabor Morango - Dark Lab",
     "descricao": "Suplemento alimentar rico em proteína.",
     "preco": "110.90",
     "precoAntigo": "120.90",
@@ -37,7 +37,7 @@
   },
   {
     "id": "1714481920005",
-    "nome": "Whey Protein Concentrado (1KG) - Verificar Sabores Disponiveis! - Growth Supplements",
+    "nome": "Whey Protein Concentrado (1KG) - Verificar sabores disponiveis! - Growth Supplements",
     "descricao": "Whey protein Growth fornece proteínas para quem deseja hipertrofia e definição muscular.",
     "preco": "139.90",
     "precoAntigo": "149.90",
@@ -45,9 +45,7 @@
     "categoria": "Whey Protein",
     "temSabores": "sim",
     "sabores": [
-      "Natural",
-      "Banana",
-      "Beijinho"
+    "Natural","Banana", "Beijinho"
     ],
     "situacao": "ativo"
   },
@@ -92,7 +90,7 @@
     "categoria": "Hipercalorico",
     "temSabores": "sim",
     "sabores": [
-      "Chocolate"
+    "Chocolate"
     ],
     "situacao": "ativo"
   },
@@ -108,19 +106,7 @@
     "sabores": [],
     "situacao": "ativo"
   },
-    {
-    "id": "1714481920008",
-    "nome": "Creatina Pura 300g - Dark Lab",
-    "descricao": "A creatina mais pura do Brasil, aprovada por Laudo pela ABENUTRI.",
-    "preco": "109.99",
-    "precoAntigo": "130.00",
-    "imagem": "creatinadarklab500g.png",
-    "categoria": "creatina",
-    "temSabores": "não",
-    "sabores": [],
-    "situacao": "ativo"
-  },
-  {
+   {
     "id": "1714481920008",
     "nome": "Creatina 100% Pura 120 Cápsulas",
     "descricao": "Creatina monohidratada, lubrificante estearato de magnésio e gelificante gelatina. NÃO CONTÉM GLÚTEN.",
@@ -132,7 +118,7 @@
     "sabores": [],
     "situacao": "ativo"
   },
-  {
+    {
     "id": "1714481920008",
     "nome": "Creatina Pura 120 Capsulas Dark Lab",
     "descricao": "A creatina mais pura do Brasil, aprovada por Laudo pela ABENUTRI.",
@@ -196,6 +182,7 @@
     ],
     "situacao": "ativo"
   },
+
   {
     "id": "1714481924008",
     "nome": "Ftw Diabo Verde Insano Pre - Workout - Frutas Amarelas 300 G",
@@ -211,7 +198,21 @@
     ],
     "situacao": "ativo"
   },
- 
+
+  {
+    "id": "1714481924008",
+    "nome": "Pré-Workout Venom Underground Pré-Treino 300G Dark Lab (300g, Limão)",
+    "descricao": "Venom é um pré-treino feito para maximizar seu treino e alcançar seus objetivos.",
+    "preco": "124.90",
+    "precoAntigo": "159.90",
+    "imagem": "pretreinodarklablimao.png",
+    "categoria": "pretreino",
+    "temSabores": "sim",
+    "sabores": [
+      "Limão"
+    ],
+    "situacao": "ativo"
+  },
   {
     "id": "1714481924008",
     "nome": "3VS Nutrition Pré Treino Prohibido 360g Sabor Ponche de Frutas",
@@ -226,6 +227,7 @@
     ],
     "situacao": "ativo"
   },
+
   {
     "id": "1714481924008",
     "nome": "Max Titanium Horus Pote 300G Sbor Limão Yuzu",
@@ -281,7 +283,7 @@
     "sabores": [],
     "situacao": "ativo"
   },
-  {
+   {
     "id": "1714481924008",
     "nome": "FITA STRAP FAIXA PRETO GROWTH MANUSCRITO (PAR) - GROWTH SUPPLEMENTS",
     "descricao": "TAMANHO ÚNICO: 4CM DE LARGURA POR 30CM DE COMPRIMENTO",
@@ -305,30 +307,44 @@
     "sabores": [],
     "situacao": "ativo"
   },
-    {
-    "id": "1714481924033",
-    "nome": "Creme de Avelã 500gr - Growth Supplements",
-    "descricao": "O creme de avelã Growth pode ser consumido de colher ou adicionado à sua receita favorita. É uma excelente opção para quem precisa controlar a glicemia e ingestão de carboidratos. ",
-    "preco": "59.99",
-    "precoAntigo": "75.80",
-    "imagem": "CREMEDEAELARgrowth.png",
-    "categoria": "Outros Suplementos",
+  {
+    "id": "1714481924008",
+    "nome": "Galão Transparente vermelho 2 Litros - Growth Supplements",
+    "descricao": "Ideal para manter seu corpo sempre hidratado.",
+    "preco": "29.90",
+    "precoAntigo": "35.00",
+    "imagem": "galaovermelho.png",
+    "categoria": "acessorios",
     "temSabores": "não",
     "sabores": [],
     "situacao": "ativo"
   },
-     {
-    "id": "1714481924033",
-    "nome": "Cafeína (200MG) 120 caps - Growth Supplements (termogênico)",
-    "descricao": "Apresenta diversos benefícios ao corpo, ela é muito utilizada por atletas por apresentar efeito termogênico e ajudar a retardar a fadiga, assim como a creatina, que combate o cansaço. ",
-    "preco": "75.99",
-    "precoAntigo": "85.80",
-    "imagem": "cafeina120CPASgrowth.png",
-    "categoria": "Outros Suplementos",
+  {
+    "id": "1714481924008",
+    "nome": "Galão Verde Fluorescente 2 Litros - Growth Supplements",
+    "descricao": "Ideal para manter seu corpo sempre hidratado.",
+    "preco": "29.90",
+    "precoAntigo": "35.00",
+    "imagem": "galaoverdeflorecente.png",
+    "categoria": "acessorios",
     "temSabores": "não",
     "sabores": [],
     "situacao": "ativo"
   },
+
+  {
+    "id": "1714481924008",
+    "nome": "Galão Amarelo 2 Litros - Growth Supplements",
+    "descricao": "Ideal para manter seu corpo sempre hidratado.",
+    "preco": "29.90",
+    "precoAntigo": "35.00",
+    "imagem": "galaoamarelo.png",
+    "categoria": "acessorios",
+    "temSabores": "não",
+    "sabores": [],
+    "situacao": "ativo"
+  },
+
   {
     "id": "1714481924033",
     "nome": "Óleo de Peixe - Ômega 3 (75 Softgel) - Growth Supplements",
@@ -389,7 +405,7 @@
     "sabores": [],
     "situacao": "ativo"
   },
-  {
+   {
     "id": "1714481924033",
     "nome": "L-Glutamine 300g - Dark Lab ",
     "descricao": " A Glutamina é uma opção de alta qualidade para aqueles que desejam complementar a sua dieta com esse nutriente essencial. ",
@@ -425,7 +441,7 @@
     "sabores": [],
     "situacao": "ativo"
   },
-  {
+    {
     "id": "1714481924033",
     "nome": "Colágeno Hidrolisado (150g) - Growth Supplements",
     "descricao": "O colágeno hidrolisado é uma proteína importante para o nosso organismo. Ele representa incríveis 30% de todas as proteínas presentes em nosso corpo - mais do que isso, desempenha funções primordiais para o bem-estar da nossa saúde. ",
